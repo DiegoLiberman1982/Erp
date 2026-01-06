@@ -1,0 +1,173 @@
+{
+  "_doc": {
+    "description": "Configuración de percepciones SUFRIDAS en facturas de COMPRA para Argentina. Las percepciones sufridas se registran en el ACTIVO (son créditos fiscales). Para percepciones COBRADAS en ventas, se usarían cuentas de PASIVO.",
+    "perception_types": ["INGRESOS_BRUTOS", "IVA", "GANANCIAS"],
+    "province_rules": {
+      "INGRESOS_BRUTOS": "provincia obligatoria (código 901-924)",
+      "IVA": "provincia prohibida",
+      "GANANCIAS": "provincia prohibida"
+    },
+    "account_structure": {
+      "note": "Las cuentas corresponden al plan de cuentas argentino estándar (ar_chart_corregido)",
+      "percepciones_iibb": "1.1.4.01.04 - Percepciones y Retenciones Impto. a los Ingresos Brutos",
+      "percepciones_iva": "1.1.4.01.10 - Percepciones y Retenciones de IVA",
+      "percepciones_ganancias": "1.1.4.01.03 - Percepciones y Retenciones Impto. a las Ganancias"
+    }
+  },
+  "companies": {
+    "_default": {
+      "INGRESOS_BRUTOS": {
+        "901": {
+          "default_account": "1.1.4.01.04.24",
+          "account_name": "Percepciones IIBB - Ciudad Autónoma de Buenos Aires"
+        },
+        "902": {
+          "default_account": "1.1.4.01.04.01",
+          "account_name": "Percepciones IIBB - Buenos Aires"
+        },
+        "903": {
+          "default_account": "1.1.4.01.04.02",
+          "account_name": "Percepciones IIBB - Catamarca"
+        },
+        "904": {
+          "default_account": "1.1.4.01.04.05",
+          "account_name": "Percepciones IIBB - Córdoba"
+        },
+        "905": {
+          "default_account": "1.1.4.01.04.06",
+          "account_name": "Percepciones IIBB - Corrientes"
+        },
+        "906": {
+          "default_account": "1.1.4.01.04.03",
+          "account_name": "Percepciones IIBB - Chaco"
+        },
+        "907": {
+          "default_account": "1.1.4.01.04.04",
+          "account_name": "Percepciones IIBB - Chubut"
+        },
+        "908": {
+          "default_account": "1.1.4.01.04.07",
+          "account_name": "Percepciones IIBB - Entre Ríos"
+        },
+        "909": {
+          "default_account": "1.1.4.01.04.08",
+          "account_name": "Percepciones IIBB - Formosa"
+        },
+        "910": {
+          "default_account": "1.1.4.01.04.09",
+          "account_name": "Percepciones IIBB - Jujuy"
+        },
+        "911": {
+          "default_account": "1.1.4.01.04.10",
+          "account_name": "Percepciones IIBB - La Pampa"
+        },
+        "912": {
+          "default_account": "1.1.4.01.04.11",
+          "account_name": "Percepciones IIBB - La Rioja"
+        },
+        "913": {
+          "default_account": "1.1.4.01.04.12",
+          "account_name": "Percepciones IIBB - Mendoza"
+        },
+        "914": {
+          "default_account": "1.1.4.01.04.13",
+          "account_name": "Percepciones IIBB - Misiones"
+        },
+        "915": {
+          "default_account": "1.1.4.01.04.14",
+          "account_name": "Percepciones IIBB - Neuquén"
+        },
+        "916": {
+          "default_account": "1.1.4.01.04.15",
+          "account_name": "Percepciones IIBB - Río Negro"
+        },
+        "917": {
+          "default_account": "1.1.4.01.04.16",
+          "account_name": "Percepciones IIBB - Salta"
+        },
+        "918": {
+          "default_account": "1.1.4.01.04.17",
+          "account_name": "Percepciones IIBB - San Juan"
+        },
+        "919": {
+          "default_account": "1.1.4.01.04.18",
+          "account_name": "Percepciones IIBB - San Luis"
+        },
+        "920": {
+          "default_account": "1.1.4.01.04.19",
+          "account_name": "Percepciones IIBB - Santa Cruz"
+        },
+        "921": {
+          "default_account": "1.1.4.01.04.20",
+          "account_name": "Percepciones IIBB - Santa Fe"
+        },
+        "922": {
+          "default_account": "1.1.4.01.04.21",
+          "account_name": "Percepciones IIBB - Santiago del Estero"
+        },
+        "923": {
+          "default_account": "1.1.4.01.04.22",
+          "account_name": "Percepciones IIBB - Tierra del Fuego"
+        },
+        "924": {
+          "default_account": "1.1.4.01.04.23",
+          "account_name": "Percepciones IIBB - Tucumán"
+        },
+        "_any_province": {
+          "default_account": "1.1.4.01.04",
+          "account_name": "Percepciones y Retenciones Impto. a los Ingresos Brutos"
+        }
+      },
+      "IVA": {
+        "default_account": "1.1.4.01.10",
+        "account_name": "Percepciones y Retenciones de IVA"
+      },
+      "GANANCIAS": {
+        "default_account": "1.1.4.01.03",
+        "account_name": "Percepciones y Retenciones Impto. a las Ganancias"
+      }
+    }
+  },
+  "provinces": {
+    "_doc": "Mapeo de código jurisdicción AFIP a nombre de provincia",
+    "901": "Ciudad Autónoma de Buenos Aires",
+    "902": "Buenos Aires",
+    "903": "Catamarca",
+    "904": "Córdoba",
+    "905": "Corrientes",
+    "906": "Chaco",
+    "907": "Chubut",
+    "908": "Entre Ríos",
+    "909": "Formosa",
+    "910": "Jujuy",
+    "911": "La Pampa",
+    "912": "La Rioja",
+    "913": "Mendoza",
+    "914": "Misiones",
+    "915": "Neuquén",
+    "916": "Río Negro",
+    "917": "Salta",
+    "918": "San Juan",
+    "919": "San Luis",
+    "920": "Santa Cruz",
+    "921": "Santa Fe",
+    "922": "Santiago del Estero",
+    "923": "Tierra del Fuego",
+    "924": "Tucumán"
+  },
+  "regimens": {
+    "_doc": "Regímenes de percepciones - el régimen es informativo y se guarda en la descripción, no modifica la cuenta contable",
+    "IVA": {
+      "RG2126": "Régimen General RG 2126",
+      "RG4815": "Régimen Aduanero RG 4815"
+    },
+    "INGRESOS_BRUTOS": {
+      "RG18": "Régimen General IIBB",
+      "CM": "Convenio Multilateral"
+    },
+    "GANANCIAS": {
+      "RG830": "Régimen General RG 830",
+      "RG4815": "Régimen Aduanero RG 4815"
+    }
+  }
+}

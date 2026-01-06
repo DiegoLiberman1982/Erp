@@ -1,0 +1,163 @@
+/*
+  A stylesheet customizing app (custom renderers)
+*/
+
+table.htCore tr.odd td {
+  background: #fafbff;
+}
+
+/*
+  A stylesheet customizing Handsontable style
+*/
+
+.collapsibleIndicator {
+  text-align: center;
+}
+
+.handsontable .green {
+  background: #37bc6c;
+  font-weight: bold;
+}
+
+.handsontable .orange {
+  background: #fcb515;
+  font-weight: bold;
+}
+
+.btn {
+  padding: 20px;
+  font: 1.4em sans-serif;
+}
+[data-color="green"] {
+  background: #37bc6c;
+}
+[data-color="orange"] {
+  background: #fcb515;
+}
+
+/* custom row highlight styles for import table */
+.ht-row-duplicate td {
+  background-color: rgba(220, 38, 38, 0.08) !important; /* light red */
+}
+.ht-row-duplicate {
+  background-color: rgba(220, 38, 38, 0.04) !important;
+}
+.ht-row-error td {
+  background-color: rgba(234, 179, 8, 0.22) !important; /* stronger amber */
+}
+.ht-row-error {
+  background-color: rgba(234, 179, 8, 0.12) !important;
+}
+.ht-row-error td:first-child {
+  box-shadow: inset 5px 0 0 rgba(217, 119, 6, 0.95) !important;
+}
+.ht-row-flag-yellow td {
+  background-color: rgba(250, 204, 21, 0.12) !important;
+}
+.ht-row-flag-yellow {
+  background-color: rgba(250, 204, 21, 0.05) !important;
+}
+.ht-row-flag-orange td {
+  background-color: rgba(251, 146, 60, 0.14) !important;
+}
+.ht-row-flag-orange {
+  background-color: rgba(251, 146, 60, 0.06) !important;
+}
+.ht-row-flag-red td {
+  background-color: rgba(248, 113, 113, 0.14) !important;
+}
+.ht-row-flag-red {
+  background-color: rgba(248, 113, 113, 0.06) !important;
+}
+
+/* temporary tooltip shown when jumping to problem cell */
+.ht-temp-tooltip {
+  background: rgba(55, 65, 81, 0.95);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+.hot-tooltip {
+  position: relative;
+  overflow: visible !important;
+  z-index: 1;
+}
+
+.hot-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111827;
+  color: #f9fafb;
+  font-weight: 700 !important;
+  font-size: 11px;
+  line-height: 1.2;
+  padding: 8px 10px;
+  border-radius: 4px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  white-space: normal;
+  width: 240px;
+  z-index: 99999;
+  transition: none;
+}
+
+.hot-tooltip:hover::after {
+  opacity: 1;
+}
+
+/* Clamp text-heavy cells without affecting table layout */
+.handsontable .hot-cell-clamp {
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.35;
+  max-height: calc(1.35em * 2);
+  width: 100%;
+}
+
+.handsontable .htCore td.hot-cell-tooltip {
+  position: relative;
+  overflow: visible;
+}
+
+.handsontable .htCore td.hot-cell-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  right: auto;
+  background: #111827;
+  color: #f9fafb;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
+  padding: 6px 8px;
+  border-radius: 4px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  white-space: normal;
+  min-width: 160px;
+  max-width: 320px;
+  z-index: 9999;
+  transition: opacity 0s ease, visibility 0s;
+  visibility: hidden;
+}
+
+.handsontable .htCore td.hot-cell-tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+}

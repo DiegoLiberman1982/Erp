@@ -1,0 +1,861 @@
+[
+  {
+    "name": "Administrator",
+    "category": "Core",
+    "description": "Cuenta raíz del sistema ERPNext con acceso completo a todas las configuraciones, DocTypes y datos.",
+    "erpnext_modules": [
+      "Todos"
+    ],
+    "erpnext_docs": [
+      "Todos"
+    ],
+    "flowint_features": [
+      "dashboard",
+      "customers",
+      "orders",
+      "inventory",
+      "import",
+      "finance",
+      "accounting",
+      "reports",
+      "settings",
+      "user-profile",
+      "notifications",
+      "company-switcher",
+      "manage-users",
+      "header-settings"
+    ],
+    "notes": "Úsalo solamente para los administradores globales. Tiene el mismo alcance que System Manager pero además puede anular restricciones críticas."
+  },
+  {
+    "name": "System Manager",
+    "category": "Core",
+    "description": "Perfil de superusuario recomendado por ERPNext para administrar usuarios, compañías y permisos.",
+    "erpnext_modules": [
+      "Setup",
+      "Sistema"
+    ],
+    "erpnext_docs": [
+      "Todos los DocTypes estándar"
+    ],
+    "flowint_features": [
+      "dashboard",
+      "customers",
+      "orders",
+      "inventory",
+      "import",
+      "finance",
+      "accounting",
+      "reports",
+      "settings",
+      "user-profile",
+      "notifications",
+      "company-switcher",
+      "manage-users",
+      "header-settings"
+    ],
+    "notes": "Debe estar asignado al menos a un usuario activo. Necesario para abrir Configuración y Gestión de Usuarios en Flowint."
+  },
+  {
+    "name": "Desk User",
+    "category": "Core",
+    "description": "Permite acceder al Desk de ERPNext y ver los módulos habilitados en la barra lateral.",
+    "erpnext_modules": [
+      "Desk"
+    ],
+    "erpnext_docs": [
+      "Vistas generales"
+    ],
+    "flowint_features": [
+      "dashboard",
+      "notifications"
+    ],
+    "notes": "Añádelo a todos los usuarios finales para que puedan acceder al dashboard sin errores 403."
+  },
+  {
+    "name": "All",
+    "category": "Core",
+    "description": "Rol interno que ERPNext usa para permisos por defecto cuando no se asigna un rol específico.",
+    "erpnext_modules": [
+      "Sistema"
+    ],
+    "erpnext_docs": [
+      "Permisos heredados"
+    ],
+    "flowint_features": [],
+    "notes": "No otorga privilegios adicionales dentro de Flowint. ERPNext lo maneja automáticamente."
+  },
+  {
+    "name": "Guest",
+    "category": "Portal",
+    "description": "Acceso mínimo para portales públicos o formularios anónimos.",
+    "erpnext_modules": [
+      "Portal"
+    ],
+    "erpnext_docs": [
+      "Web Forms"
+    ],
+    "flowint_features": [],
+    "notes": "No tiene impacto en Flowint."
+  },
+  {
+    "name": "Accounts Manager",
+    "category": "Finanzas",
+    "description": "Control total sobre transacciones contables: facturas, pagos, asientos y reportes financieros.",
+    "erpnext_modules": [
+      "Accounts"
+    ],
+    "erpnext_docs": [
+      "Sales Invoice",
+      "Purchase Invoice",
+      "Payment Entry",
+      "Journal Entry",
+      "GL Entry"
+    ],
+    "flowint_features": [
+      "dashboard",
+      "customers",
+      "orders",
+      "finance",
+      "accounting",
+      "reports",
+      "notifications",
+      "company-switcher"
+    ],
+    "notes": "Necesario para abrir paneles de Finanzas, Contabilidad y reportes de clientes/proveedores."
+  },
+  {
+    "name": "Accounts User",
+    "category": "Finanzas",
+    "description": "Puede crear y consultar documentos contables, pero sin cambiar configuraciones globales.",
+    "erpnext_modules": [
+      "Accounts"
+    ],
+    "erpnext_docs": [
+      "Sales Invoice",
+      "Purchase Invoice",
+      "Payment Entry"
+    ],
+    "flowint_features": [
+      "dashboard",
+      "customers",
+      "orders",
+      "finance",
+      "accounting",
+      "reports",
+      "notifications",
+      "company-switcher"
+    ],
+    "notes": "Útil para analistas o cobranzas que solo necesitan registrar y consultar movimientos."
+  },
+  {
+    "name": "Auditor",
+    "category": "Finanzas",
+    "description": "Permite revisar información contable y reportes sin poder modificar datos.",
+    "erpnext_modules": [
+      "Accounts"
+    ],
+    "erpnext_docs": [
+      "Journal Entry",
+      "GL Entry",
+      "Report"
+    ],
+    "flowint_features": [
+      "finance",
+      "accounting",
+      "reports"
+    ],
+    "notes": "Ligero y seguro para perfiles de auditoría."
+  },
+  {
+    "name": "Analytics",
+    "category": "Finanzas",
+    "description": "Rol pensado para usuarios que generan dashboards y reportes analíticos.",
+    "erpnext_modules": [
+      "Accounts",
+      "Sales",
+      "Purchase"
+    ],
+    "erpnext_docs": [
+      "Query Report",
+      "Dashboard"
+    ],
+    "flowint_features": [
+      "dashboard",
+      "reports"
+    ],
+    "notes": "Complementa a Report Manager otorgando acceso a métricas en Flowint."
+  },
+  {
+    "name": "Report Manager",
+    "category": "Sistema",
+    "description": "Puede crear y compartir reportes personalizados en ERPNext.",
+    "erpnext_modules": [
+      "Reports"
+    ],
+    "erpnext_docs": [
+      "Report",
+      "Query Report"
+    ],
+    "flowint_features": [
+      "dashboard",
+      "reports"
+    ],
+    "notes": "Obligatorio para que un usuario pueda abrir los módulos de Reportes en Flowint."
+  },
+  {
+    "name": "Prepared Report User",
+    "category": "Sistema",
+    "description": "Habilita la descarga de reportes grandes desde la cola de reportes preparados.",
+    "erpnext_modules": [
+      "Reports"
+    ],
+    "erpnext_docs": [
+      "Prepared Report"
+    ],
+    "flowint_features": [
+      "reports"
+    ],
+    "notes": "Útil si exportan grandes listados de precios o estados de cuenta."
+  },
+  {
+    "name": "Dashboard Manager",
+    "category": "Sistema",
+    "description": "Permite crear y administrar dashboards dentro de ERPNext.",
+    "erpnext_modules": [
+      "Desk",
+      "Dashboard"
+    ],
+    "erpnext_docs": [
+      "Dashboard",
+      "Dashboard Chart"
+    ],
+    "flowint_features": [
+      "dashboard",
+      "reports"
+    ],
+    "notes": "Recomendado para usuarios encargados de KPIs."
+  },
+  {
+    "name": "Workspace Manager",
+    "category": "Sistema",
+    "description": "Gestiona workspaces (módulos) y accesos dentro del Desk.",
+    "erpnext_modules": [
+      "Desk"
+    ],
+    "erpnext_docs": [
+      "Workspace"
+    ],
+    "flowint_features": [
+      "dashboard",
+      "settings"
+    ],
+    "notes": "Necesario para administrar qué aplicaciones aparecen en la barra lateral."
+  },
+  {
+    "name": "Script Manager",
+    "category": "Sistema",
+    "description": "Puede crear Server Scripts y Client Scripts.",
+    "erpnext_modules": [
+      "Customization"
+    ],
+    "erpnext_docs": [
+      "Server Script",
+      "Client Script"
+    ],
+    "flowint_features": [
+      "settings"
+    ],
+    "notes": "Solo para desarrolladores o consultores con acceso a Configuración."
+  },
+  {
+    "name": "Sales Manager",
+    "category": "Ventas",
+    "description": "Control total sobre documentos de ventas y clientes.",
+    "erpnext_modules": [
+      "Selling",
+      "CRM"
+    ],
+    "erpnext_docs": [
+      "Customer",
+      "Quotation",
+      "Sales Order",
+      "Sales Invoice",
+      "Delivery Note"
+    ],
+    "flowint_features": [
+      "dashboard",
+      "customers",
+      "reports",
+      "import",
+      "notifications"
+    ],
+    "notes": "Imprescindible para líderes comerciales que navegan el panel de Clientes."
+  },
+  {
+    "name": "Sales User",
+    "category": "Ventas",
+    "description": "Puede crear y consultar documentos básicos de ventas.",
+    "erpnext_modules": [
+      "Selling"
+    ],
+    "erpnext_docs": [
+      "Customer",
+      "Sales Order",
+      "Sales Invoice"
+    ],
+    "flowint_features": [
+      "dashboard",
+      "customers",
+      "reports",
+      "notifications"
+    ],
+    "notes": "Perfil estándar para ejecutivos de cuenta."
+  },
+  {
+    "name": "Sales Master Manager",
+    "category": "Ventas",
+    "description": "Gestiona catálogos de ventas: listas de precio, plantillas y series.",
+    "erpnext_modules": [
+      "Selling"
+    ],
+    "erpnext_docs": [
+      "Price List",
+      "Item Price",
+      "Sales BOM"
+    ],
+    "flowint_features": [
+      "customers",
+      "import",
+      "reports"
+    ],
+    "notes": "Necesario para administrar listas de precios desde Flowint."
+  },
+  {
+    "name": "Purchase Manager",
+    "category": "Compras",
+    "description": "Control total sobre pedidos y facturas de compra.",
+    "erpnext_modules": [
+      "Buying"
+    ],
+    "erpnext_docs": [
+      "Supplier",
+      "Purchase Order",
+      "Purchase Invoice",
+      "Request for Quotation"
+    ],
+    "flowint_features": [
+      "dashboard",
+      "orders",
+      "inventory",
+      "import",
+      "finance",
+      "reports",
+      "notifications"
+    ],
+    "notes": "Para responsables de abastecimiento y relaciones con proveedores."
+  },
+  {
+    "name": "Purchase User",
+    "category": "Compras",
+    "description": "Puede crear y consultar documentos básicos de compras.",
+    "erpnext_modules": [
+      "Buying"
+    ],
+    "erpnext_docs": [
+      "Supplier",
+      "Purchase Order",
+      "Purchase Invoice"
+    ],
+    "flowint_features": [
+      "orders",
+      "inventory",
+      "import"
+    ],
+    "notes": "Perfil para analistas de compras."
+  },
+  {
+    "name": "Purchase Master Manager",
+    "category": "Compras",
+    "description": "Mantiene listas de precios y datos maestros de proveedores.",
+    "erpnext_modules": [
+      "Buying"
+    ],
+    "erpnext_docs": [
+      "Supplier",
+      "Item Supplier",
+      "Purchase Taxes and Charges Template"
+    ],
+    "flowint_features": [
+      "orders",
+      "import"
+    ],
+    "notes": "Indispensable si van a importar precios de compra."
+  },
+  {
+    "name": "Stock Manager",
+    "category": "Inventario",
+    "description": "Administra inventario, movimientos de stock y almacenes.",
+    "erpnext_modules": [
+      "Stock"
+    ],
+    "erpnext_docs": [
+      "Item",
+      "Stock Entry",
+      "Warehouse",
+      "Bin",
+      "Stock Ledger Entry"
+    ],
+    "flowint_features": [
+      "inventory",
+      "dashboard",
+      "reports"
+    ],
+    "notes": "Necesario para usar el panel de Inventario y kits."
+  },
+  {
+    "name": "Stock User",
+    "category": "Inventario",
+    "description": "Operador de almacén con acceso a movimientos básicos.",
+    "erpnext_modules": [
+      "Stock"
+    ],
+    "erpnext_docs": [
+      "Stock Entry",
+      "Delivery Note",
+      "Material Transfer"
+    ],
+    "flowint_features": [
+      "inventory"
+    ],
+    "notes": "Ideal para operarios que solo cargan movimientos."
+  },
+  {
+    "name": "Item Manager",
+    "category": "Inventario",
+    "description": "Gestiona el catálogo de ítems, variantes, atributos y conversiones.",
+    "erpnext_modules": [
+      "Stock"
+    ],
+    "erpnext_docs": [
+      "Item",
+      "Item Price",
+      "UOM Conversion"
+    ],
+    "flowint_features": [
+      "inventory",
+      "import"
+    ],
+    "notes": "Requerido para importar artículos y editar configuraciones de ítems."
+  },
+  {
+    "name": "Fulfillment User",
+    "category": "Inventario",
+    "description": "Usuarios encargados de preparar y despachar pedidos.",
+    "erpnext_modules": [
+      "Stock",
+      "Selling"
+    ],
+    "erpnext_docs": [
+      "Delivery Note",
+      "Pick List"
+    ],
+    "flowint_features": [
+      "orders",
+      "inventory"
+    ],
+    "notes": "Útil cuando usan el panel de remitos y movimientos."
+  },
+  {
+    "name": "Delivery Manager",
+    "category": "Logística",
+    "description": "Coordina entregas y logística de distribución.",
+    "erpnext_modules": [
+      "Stock",
+      "Selling"
+    ],
+    "erpnext_docs": [
+      "Delivery Trip",
+      "Delivery Note"
+    ],
+    "flowint_features": [
+      "inventory",
+      "orders"
+    ],
+    "notes": "Relaciona paneles de Proveedores y Remitos."
+  },
+  {
+    "name": "Delivery User",
+    "category": "Logística",
+    "description": "Operador logístico con acceso a documentos de entrega.",
+    "erpnext_modules": [
+      "Stock"
+    ],
+    "erpnext_docs": [
+      "Delivery Note"
+    ],
+    "flowint_features": [
+      "inventory"
+    ],
+    "notes": "Perfil para choferes u operadores."
+  },
+  {
+    "name": "Fleet Manager",
+    "category": "Logística",
+    "description": "Administra vehículos y mantenimientos de flota.",
+    "erpnext_modules": [
+      "Assets",
+      "Fleet"
+    ],
+    "erpnext_docs": [
+      "Vehicle",
+      "Vehicle Log"
+    ],
+    "flowint_features": [],
+    "notes": "Sin impacto directo en Flowint."
+  },
+  {
+    "name": "Maintenance Manager",
+    "category": "Servicio",
+    "description": "Controla contratos y órdenes de mantenimiento.",
+    "erpnext_modules": [
+      "Maintenance"
+    ],
+    "erpnext_docs": [
+      "Maintenance Visit",
+      "Maintenance Schedule"
+    ],
+    "flowint_features": [],
+    "notes": "No se usa en los paneles actuales."
+  },
+  {
+    "name": "Maintenance User",
+    "category": "Servicio",
+    "description": "Operador de mantenimiento preventivo o correctivo.",
+    "erpnext_modules": [
+      "Maintenance"
+    ],
+    "erpnext_docs": [
+      "Maintenance Visit"
+    ],
+    "flowint_features": [],
+    "notes": "Sin impacto en Flowint."
+  },
+  {
+    "name": "Quality Manager",
+    "category": "Calidad",
+    "description": "Gestiona inspecciones, desviaciones y registros de calidad.",
+    "erpnext_modules": [
+      "Quality"
+    ],
+    "erpnext_docs": [
+      "Quality Inspection",
+      "Quality Goal"
+    ],
+    "flowint_features": [],
+    "notes": "No se consume por ahora en Flowint."
+  },
+  {
+    "name": "Projects Manager",
+    "category": "Proyectos",
+    "description": "Administra proyectos, tareas y hojas de tiempo.",
+    "erpnext_modules": [
+      "Projects"
+    ],
+    "erpnext_docs": [
+      "Project",
+      "Task",
+      "Timesheet"
+    ],
+    "flowint_features": [],
+    "notes": "No impacta los paneles actuales."
+  },
+  {
+    "name": "Projects User",
+    "category": "Proyectos",
+    "description": "Usuario operativo para tareas y partes de trabajo.",
+    "erpnext_modules": [
+      "Projects"
+    ],
+    "erpnext_docs": [
+      "Task",
+      "Timesheet"
+    ],
+    "flowint_features": [],
+    "notes": "Sin uso en Flowint."
+  },
+  {
+    "name": "Manufacturing Manager",
+    "category": "Manufactura",
+    "description": "Controla órdenes de producción y plan de materiales.",
+    "erpnext_modules": [
+      "Manufacturing"
+    ],
+    "erpnext_docs": [
+      "Work Order",
+      "BOM",
+      "Production Plan"
+    ],
+    "flowint_features": [
+      "inventory"
+    ],
+    "notes": "Útil si gestionan kits/product bundles desde Flowint."
+  },
+  {
+    "name": "Manufacturing User",
+    "category": "Manufactura",
+    "description": "Operador de planta que ejecuta órdenes y registra consumos.",
+    "erpnext_modules": [
+      "Manufacturing"
+    ],
+    "erpnext_docs": [
+      "Work Order",
+      "Job Card"
+    ],
+    "flowint_features": [
+      "inventory"
+    ],
+    "notes": "Complementa los paneles de stock cuando hay producción."
+  },
+  {
+    "name": "Agriculture Manager",
+    "category": "Agricultura",
+    "description": "Administra parcelas, cultivos y operaciones agrícolas.",
+    "erpnext_modules": [
+      "Agriculture"
+    ],
+    "erpnext_docs": [
+      "Crop",
+      "Soil Test"
+    ],
+    "flowint_features": [],
+    "notes": "No utilizado en los paneles actuales."
+  },
+  {
+    "name": "Agriculture User",
+    "category": "Agricultura",
+    "description": "Operador agrícola con acceso a registros de campo.",
+    "erpnext_modules": [
+      "Agriculture"
+    ],
+    "erpnext_docs": [
+      "Crop",
+      "Farming Activity"
+    ],
+    "flowint_features": [],
+    "notes": "Sin impacto en Flowint."
+  },
+  {
+    "name": "HR Manager",
+    "category": "Recursos Humanos",
+    "description": "Gestiona empleados, nómina y evaluaciones.",
+    "erpnext_modules": [
+      "HR"
+    ],
+    "erpnext_docs": [
+      "Employee",
+      "Salary Structure",
+      "Leave Allocation"
+    ],
+    "flowint_features": [],
+    "notes": "Flowint todavía no expone módulos de RRHH."
+  },
+  {
+    "name": "HR User",
+    "category": "Recursos Humanos",
+    "description": "Usuario operativo de RRHH.",
+    "erpnext_modules": [
+      "HR"
+    ],
+    "erpnext_docs": [
+      "Leave Application",
+      "Expense Claim"
+    ],
+    "flowint_features": [],
+    "notes": "No se usa en Flowint actualmente."
+  },
+  {
+    "name": "Support Team",
+    "category": "Soporte",
+    "description": "Atiende issues, tickets y comunicaciones con clientes.",
+    "erpnext_modules": [
+      "Support",
+      "CRM"
+    ],
+    "erpnext_docs": [
+      "Issue",
+      "Communication"
+    ],
+    "flowint_features": [
+      "customers",
+      "notifications"
+    ],
+    "notes": "Permite que personal de soporte vea clientes y alertas."
+  },
+  {
+    "name": "Inbox User",
+    "category": "Soporte",
+    "description": "Acceso al módulo de correo/Inbox interno.",
+    "erpnext_modules": [
+      "Communication"
+    ],
+    "erpnext_docs": [
+      "Communication"
+    ],
+    "flowint_features": [
+      "notifications"
+    ],
+    "notes": "Útil si necesitan leer notificaciones internas."
+  },
+  {
+    "name": "Newsletter Manager",
+    "category": "Marketing",
+    "description": "Crea y envía newsletters desde ERPNext.",
+    "erpnext_modules": [
+      "Email Marketing"
+    ],
+    "erpnext_docs": [
+      "Newsletter"
+    ],
+    "flowint_features": [],
+    "notes": "No impacta Flowint."
+  },
+  {
+    "name": "Blogger",
+    "category": "Marketing",
+    "description": "Permite publicar entradas en el sitio web de ERPNext.",
+    "erpnext_modules": [
+      "Website"
+    ],
+    "erpnext_docs": [
+      "Blog Post"
+    ],
+    "flowint_features": [],
+    "notes": "Sin relación con Flowint."
+  },
+  {
+    "name": "Knowledge Base Editor",
+    "category": "Marketing",
+    "description": "Administra artículos de base de conocimiento.",
+    "erpnext_modules": [
+      "Support",
+      "Website"
+    ],
+    "erpnext_docs": [
+      "Knowledge Base Article"
+    ],
+    "flowint_features": [],
+    "notes": "Solo afecta el portal web."
+  },
+  {
+    "name": "Knowledge Base Contributor",
+    "category": "Marketing",
+    "description": "Puede redactar artículos pero requiere aprobación.",
+    "erpnext_modules": [
+      "Support",
+      "Website"
+    ],
+    "erpnext_docs": [
+      "Knowledge Base Article"
+    ],
+    "flowint_features": [],
+    "notes": "Sin impacto actual."
+  },
+  {
+    "name": "Translator",
+    "category": "Marketing",
+    "description": "Puede traducir textos en ERPNext.",
+    "erpnext_modules": [
+      "Website"
+    ],
+    "erpnext_docs": [
+      "Translation"
+    ],
+    "flowint_features": [],
+    "notes": "No modifica permisos en Flowint."
+  },
+  {
+    "name": "Website Manager",
+    "category": "Marketing",
+    "description": "Administra páginas, menús y portal web.",
+    "erpnext_modules": [
+      "Website"
+    ],
+    "erpnext_docs": [
+      "Web Page",
+      "Web Form"
+    ],
+    "flowint_features": [],
+    "notes": "Flowint todavía no expone el módulo web."
+  },
+  {
+    "name": "Projects User",
+    "category": "Proyectos",
+    "description": "Colaborador general de proyectos y tareas.",
+    "erpnext_modules": [
+      "Projects"
+    ],
+    "erpnext_docs": [
+      "Task",
+      "Timesheet"
+    ],
+    "flowint_features": [],
+    "notes": "No usado hoy."
+  },
+  {
+    "name": "Academics User",
+    "category": "Educación",
+    "description": "Roles educativos (estudiantes/profesores).",
+    "erpnext_modules": [
+      "Education"
+    ],
+    "erpnext_docs": [
+      "Student",
+      "Course"
+    ],
+    "flowint_features": [],
+    "notes": "No aplica a este proyecto."
+  },
+  {
+    "name": "Customer",
+    "category": "Portal",
+    "description": "Rol de portal para clientes que consultan pedidos y facturas en ERPNext.",
+    "erpnext_modules": [
+      "Selling"
+    ],
+    "erpnext_docs": [
+      "Sales Order",
+      "Sales Invoice"
+    ],
+    "flowint_features": [],
+    "notes": "No otorga acceso a los módulos internos de Flowint."
+  },
+  {
+    "name": "Supplier",
+    "category": "Portal",
+    "description": "Rol de portal para proveedores que responden órdenes de compra o cargan facturas.",
+    "erpnext_modules": [
+      "Buying"
+    ],
+    "erpnext_docs": [
+      "Purchase Order",
+      "Purchase Invoice"
+    ],
+    "flowint_features": [],
+    "notes": "No habilita secciones del frontend de Flowint."
+  },
+  {
+    "name": "Employee",
+    "category": "Recursos Humanos",
+    "description": "Perfil básico asociado a empleados para workflows de RR. HH.",
+    "erpnext_modules": [
+      "HR"
+    ],
+    "erpnext_docs": [
+      "Leave Application",
+      "Expense Claim"
+    ],
+    "flowint_features": [],
+    "notes": "Flowint aún no expone módulos de RR. HH., por lo que este rol no agrega permisos adicionales."
+  }
+]

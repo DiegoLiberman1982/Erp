@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    volumes:
+      - ./shared:/shared:ro
+    environment:
+      - ERPNEXT_URL=${ERPNEXT_URL}
+      - ERPNEXT_HOST=${ERPNEXT_HOST}
+      - FLASK_CORS_ORIGINS=${FLASK_CORS_ORIGINS:-http://localhost:5173,http://localhost:5174}
+    ports:
+      - "127.0.0.1:5000:5000"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8081:80"
+
+volumes: {}

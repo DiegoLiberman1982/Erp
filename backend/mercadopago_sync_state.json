@@ -1,0 +1,33 @@
+{
+  "accounts": {
+    "ADRIANA NOEMI CHARYTON::1.1.1.02.02 - mercadopago - ANC": {
+      "auto_sync_enabled": true,
+      "auto_sync_updated_at": "2025-11-17T20:58:29.207958+00:00",
+      "last_sync_at": "2025-11-18T01:19:47.447986+00:00",
+      "last_sync_summary": {
+        "bank_account": "1.1.1.02.02 - mercadopago - ANC",
+        "report_id": "876527589",
+        "report_file_name": "settlement-15518458-manual-2025-11-17-221012.csv",
+        "begin_date": "2025-11-15",
+        "end_date": "2025-11-18",
+        "rows_in_report": 9,
+        "inserted": 9,
+        "skipped": 0,
+        "trigger": "manual",
+        "inserted_names": [
+          "ACC-BTN-2025-00001",
+          "ACC-BTN-2025-00002",
+          "ACC-BTN-2025-00003",
+          "ACC-BTN-2025-00004",
+          "ACC-BTN-2025-00005",
+          "ACC-BTN-2025-00006",
+          "ACC-BTN-2025-00007",
+          "ACC-BTN-2025-00008",
+          "ACC-BTN-2025-00009"
+        ]
+      },
+      "last_report_id": "876527589",
+      "last_synced_rows": 9
+    }
+  }
+}

@@ -1,0 +1,2123 @@
+@import "tailwindcss";
+
+/* =============================================================================
+   BASE STYLES (VERSIÓN CORREGIDA Y SEGURA)
+   ============================================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #f3f4f6, #eaeef3);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =============================================================================
+   BUTTON STYLES
+   ============================================================================= */
+
+button {
+  border: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  
+}
+
+/* Exclude buttons with gradients from transparent background */
+button:not([class*="bg-gradient"]):not(.btn-mode-selector):not(.btn-filter):not(.bg-blue-600):not(.bg-green-600):not(.btn-action-primary):not(.btn-action-danger):not(.btn-action-success):not(.exchange-rate-btn) {
+  background: transparent;
+}
+
+/* Ensure disabled buttons with gradients have good contrast */
+button:disabled[class*="bg-gradient"] {
+  background: #9ca3af !important; /* gray-400 */
+  color: white !important;
+  opacity: 1 !important;
+}
+
+/* Custom button styles for main content */
+.btn-primary {
+  background: #1f2937 !important; /* gray-800 */
+  color: white !important;
+  border: 1px solid transparent !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 1rem !important;
+  font-weight: 900 !important;
+  font-size: 0.875rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  transition: all 0.3s !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.btn-primary:hover {
+  background: #374151 !important; /* gray-700 */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  transform: scale(1.05) !important;
+}
+
+.btn-primary svg {
+  margin-right: 0.5rem !important;
+}
+
+/* Secondary button style for management actions (now solid violet, no gradient, unified size) */
+.btn-secondary {
+  background: #7c3aed !important; /* violet-600 */
+  color: white !important;
+  border: 1px solid transparent !important;
+  padding: 0.5rem 1rem !important; /* match base button padding */
+  border-radius: 0.5rem !important;
+  font-weight: 500 !important; /* unified weight */
+  font-size: 0.875rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  transition: all 0.15s ease !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04) !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.btn-secondary:hover {
+  background: #6d28d9 !important; /* slightly darker violet */
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06) !important;
+}
+
+.btn-secondary svg {
+  margin-right: 0.5rem !important;
+}
+
+.integrations-generate-btn {
+  gap: 0.5rem !important;
+  min-height: 42px !important;
+  padding-left: 1.25rem !important;
+  padding-right: 1.25rem !important;
+}
+
+.integrations-generate-btn.is-loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Unified button typography for primary button groups to avoid mixed boldness */
+button,
+.btn-action-primary,
+.btn-action-success,
+.btn-action-danger,
+.btn-secondary,
+.btn-primary,
+.btn-manage-addresses,
+.btn-add-row,
+.btn-filter,
+.btn-mode-selector {
+  font-family: inherit !important;
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+}
+
+/* Button style for managing addresses and similar actions */
+.btn-manage-addresses {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0.5rem 1rem !important;
+  border: 1px solid transparent !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  border-radius: 0.75rem !important;
+  color: white !important;
+  background: linear-gradient(to right, #374151 0%, #1f2937 100%) !important;
+  transition: all 0.3s !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.btn-manage-addresses:hover {
+  background: linear-gradient(to right, #4b5563 0%, #374151 100%) !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  transform: scale(1.05) !important;
+}
+
+.btn-manage-addresses svg {
+  margin-right: 0.5rem !important;
+}
+
+/* Button variant for Remito - matching the action-chip--remito gradient */
+.btn-remito {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 0.75rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  color: white !important;
+  background: linear-gradient(140deg, #7c3aed 0%, #6d28d9 100%) !important;
+  border: 1px solid rgba(124,58,237,0.15) !important;
+  box-shadow: 0 8px 20px -12px rgba(109,40,217,0.6) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-remito:hover:not(:disabled) {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 12px 30px -14px rgba(109,40,217,0.6) !important;
+}
+
+/* Button variant for Payment - matching the action-chip--payment gradient */
+.btn-payment {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 0.75rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  color: white !important;
+  background: linear-gradient(140deg, #059669 0%, #047857 100%) !important;
+  border: 1px solid rgba(4,120,87,0.12) !important;
+  box-shadow: 0 8px 20px -12px rgba(4,120,87,0.45) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-payment:hover:not(:disabled) {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 12px 30px -14px rgba(4,120,87,0.45) !important;
+}
+
+/* =============================================================================
+   TABLE STYLES
+   ============================================================================= */
+
+/* General table styles - only apply to non-accounting tables */
+table:not(.accounting-table) {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table:not(.accounting-table) th,
+table:not(.accounting-table) td {
+  padding: 10px;
+  border-bottom: 1px solid #efefef;
+  text-align: left;
+}
+
+/* Accounting table specific styles */
+.accounting-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.accounting-table th {
+  padding: 0.5rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.accounting-table td {
+  padding: 0.35rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Specific alignment for accounting table columns */
+.accounting-table .text-right {
+  text-align: right !important;
+}
+
+.accounting-table .text-center {
+  text-align: center !important;
+}
+
+.accounting-table .text-left {
+  text-align: left !important;
+}
+
+/* Compact row spacing for conciliation tables (approx. 1/3 of previous vertical padding) */
+.conciliation-panel table th,
+.conciliation-panel table td {
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+
+/* =============================================================================
+   LAYOUT STYLES
+   ============================================================================= */
+
+/* Custom styles for the layout */
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-area {
+  flex: 1;
+  display: flex;
+}
+
+.sidebar {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+/* =============================================================================
+   GLASS MORPHISM EFFECTS
+   ============================================================================= */
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* =============================================================================
+   HEADER STYLES
+   ============================================================================= */
+
+/* Header gradient styles */
+.header-gradient {
+  background: linear-gradient(135deg, #bb2424 0%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(135deg, #bb2424 0%, rgb(255, 255, 255) 100%);
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.25);
+}
+
+.header-gradient-alt {
+  background: linear-gradient(135deg, #bb2424 0%, rgb(255, 255, 255) 100%);
+  box-shadow: 0 4px 20px rgba(245, 87, 108, 0.25);
+}
+
+.header-gradient-elegant {
+  background: linear-gradient(135deg, #bb2424 0%, #bb2424 50%, #bb2424  100%);
+  box-shadow: 0 8px 32px rgba(173, 156, 156, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =============================================================================
+   MODAL STYLES
+   ============================================================================= */
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  min-width: 400px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Draggable modal */
+.draggable-modal {
+  cursor: move;
+}
+
+.draggable-modal:active {
+  cursor: grabbing;
+}
+
+/* =============================================================================
+   MODAL FIXES - Ensure modals are always visible
+   ============================================================================= */
+
+.fixed.z-50 {
+  position: fixed !important;
+  z-index: 50 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: flex !important;
+}
+
+.fixed.z-40 {
+  position: fixed !important;
+  z-index: 40 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* =============================================================================
+   TABS STYLES
+   ============================================================================= */
+
+/* Tabs styles */
+.tabs-container {
+  border-bottom: 2px solid rgba(59, 130, 246, 0.2);
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(248, 250, 252, 0.6));
+  border-radius: 1rem 1rem 0 0;
+  padding: 0.5rem 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.tab-nav {
+  margin-bottom: -2px;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.tab-bar-with-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.bulk-delete-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.4rem;
+  border: none;
+  background: transparent;
+  color: #dc2626;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.bulk-delete-toggle svg {
+  width: 1rem;
+  height: 1rem;
+  stroke-width: 1.8px;
+  color: currentColor;
+  /* Ensure lucide/react SVGs render with the intended color and are not overridden */
+  stroke: currentColor !important;
+  fill: currentColor !important;
+  opacity: 1 !important;
+}
+
+.bulk-delete-toggle:hover:not(:disabled) {
+  color: #b91c1c;
+}
+
+.bulk-delete-toggle.active {
+  color: #991b1b;
+}
+
+.bulk-delete-toggle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Defensive rule: when other utilities attempt to change opacity or apply transparency,
+   ensure the bulk-delete icon remains visible. This targets common Tailwind/utility overrides. */
+.bulk-delete-toggle,
+.bulk-delete-toggle svg,
+.bulk-delete-toggle .bulk-delete-count {
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+.bulk-delete-count {
+  font-size: 0.75rem;
+  line-height: 1;
+  color: inherit;
+}
+
+.tab-button {
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  border-radius: 0.5rem 0.5rem 0 0;
+  cursor: pointer;
+  position: relative;
+  background: transparent;
+}
+
+.tab-button.active {
+  border-bottom-color: #374151;
+  color: #111827;
+  background: #f9fafb;
+  font-weight: 600;
+}
+
+.tab-button:not(.active) {
+  color: #6b7280;
+}
+
+.tab-button:not(.active):hover {
+  color: #374151;
+  background: #f3f4f6;
+}
+
+.tab-count {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.tab-count.active {
+  background: #374151;
+  color: white;
+}
+
+
+
+/* =============================================================================
+   ACCOUNTING SPECIFIC STYLES
+   ============================================================================= */
+
+/* Accounting card title styles */
+.accounting-card-title {
+  background: rgba(243, 244, 246, 0.6);
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(209, 213, 219, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Reusable card style for kit/item detail panels */
+.kit-details-card {
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.08);
+  border-radius: 1rem; /* rounded-3xl equivalent */
+  border: 1px solid rgba(229, 231, 235, 0.35); /* subtle gray border */
+  overflow: visible;
+  min-width: 0;
+}
+
+/* =============================================================================
+   IMPORT PANEL BUTTON STYLES (VERSIÓN CORREGIDA Y UNIFICADA)
+   ============================================================================= */
+
+/* Base común para todos los botones del panel para unificar tamaño y transición */
+.btn-mode-selector,
+.btn-filter,
+.btn-action-primary,
+.btn-action-danger,
+.btn-action-success {
+  padding: 0.5rem 1rem; /* Padding unificado para misma altura */
+  border-radius: 0.5rem;
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Sombra sutil para todos */
+}
+
+/* --- Botones de Modo (Actualizar / Crear) --- */
+.btn-mode-selector {
+  background: transparent;
+  color: #6b7280; /* Gris oscuro para texto */
+  box-shadow: none; /* Sin sombra en estado inactivo */
+}
+
+.btn-mode-selector:hover {
+  color: #374151;
+  background: #f3f4f6; /* Hover sutil, si lo querés sacar, borrá este bloque */
+}
+
+.btn-mode-selector.active {
+  background: white;
+  color: #1f2937; /* Color oscuro para buena legibilidad */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border-color: #e5e7eb;
+}
+
+/* --- Botones de Filtro (Duplicados, Errores, etc.) --- */
+.btn-filter {
+  background: #f9fafb;
+  color: #374151; /* Texto oscuro sobre fondo claro */
+  border-color: #e5e7eb;
+}
+
+.btn-filter:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db; /* Si no querés hover, borrá este bloque */
+}
+
+.btn-filter-danger {
+  background: #fef2f2;
+  color: #991b1b; /* Rojo más oscuro para mejor contraste */
+  border-color: #fecaca;
+}
+
+.btn-filter-danger:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.btn-filter-warning {
+  background: #fffbeb;
+  color: #b45309; /* Amarillo/marrón oscuro para mejor contraste */
+  border-color: #fde68a;
+}
+
+.btn-filter-warning:hover {
+  background: #fef3c7;
+  border-color: #fcd34d;
+}
+
+.btn-filter-danger-active {
+  background: #dc2626;
+  color: white;
+  border-color: #dc2626;
+}
+
+.btn-filter-danger-active:hover {
+  background: #b91c1c;
+  border-color: #b91c1c;
+}
+
+.btn-filter-warning-active {
+  background: #d97706;
+  color: white;
+  border-color: #d97706;
+}
+
+.btn-filter-warning-active:hover {
+  background: #b45309;
+  border-color: #b45309;
+}
+
+/* --- Botones de Acción (Agregar, Eliminar, Importar) --- */
+.btn-action-primary {
+  background: #e5e7eb; /* Fondo gris claro */
+  color: #1f2937; /* Texto bien oscuro */
+  border-color: #d1d5db;
+}
+
+.btn-action-primary:hover:not(:disabled) {
+  background: #d1d5db;
+  border-color: #9ca3af;
+}
+
+.btn-action-danger {
+  background: #b91c1c; /* Usamos el color oscuro del hover como estado base */
+  color: white;
+}
+
+/* BORRA o comenta el bloque .btn-action-danger:hover:not(:disabled) */
+
+
+.btn-action-success {
+  background: #047857; /* Usamos el color oscuro del hover como estado base */
+  color: white;
+}
+
+/* Toggle switch used in automation global switch */
+.toggle-switch {
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  border-radius: 9999px;
+  background: #9ca3af; /* gray-400 fallback */
+  position: relative;
+  transition: background-color 180ms ease, box-shadow 180ms ease;
+}
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border-radius: 9999px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  transition: transform 180ms ease;
+}
+.toggle-switch.on {
+  background: #16a34a; /* green-600 */
+}
+.toggle-switch.on::after {
+  transform: translateX(18px);
+}
+
+.integrations-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.integrations-toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Estado deshabilitado para TODOS los botones de acción, garantizando visibilidad */
+.btn-action-primary:disabled,
+.btn-action-danger:disabled,
+.btn-action-success:disabled {
+  background: #d1d5db;
+  color: #1f2937 !important; /* <-- AÑADÍ !important AQUÍ */
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+  transform: none;
+  
+}
+
+/* Badge styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  margin-left: 0.5rem;
+}
+
+.badge-pendientes {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge-proceso {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.badge-terminados {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* =============================================================================
+   RESPONSIVE STYLES
+   ============================================================================= */
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+  }
+
+  .modal-content {
+    min-width: 300px;
+    padding: 1.5rem;
+  }
+
+  /* Ensure Tailwind-like utility min-w-0 is enforced where needed to allow flex children to shrink */
+  .min-w-0 {
+    min-width: 0 !important;
+  }
+
+  /* Force inputs/selects inside accounting cards and tabs to be shrinkable */
+  .accounting-card-title + .p-4 .tab-nav,
+  .flex-1 .p-6 {
+    min-width: 0;
+  }
+
+  .flex-1 .p-6 input,
+  .flex-1 .p-6 select,
+  .flex-1 .p-6 textarea,
+  .flex-1 .p-6 .grid {
+    min-width: 0;
+  }
+}
+
+/* =============================================================================
+   DATALIST STYLES FOR SEARCHABLE SELECTS
+   ============================================================================= */
+
+datalist {
+  position: absolute !important;
+  z-index: 100000 !important;
+  background: white !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  max-height: 200px !important;
+  overflow-y: auto !important;
+  width: 100% !important;
+}
+
+datalist option {
+  padding: 0.5rem 0.75rem !important;
+  cursor: pointer !important;
+  display: block !important;
+}
+
+datalist option:hover {
+  background-color: #f3f4f6 !important;
+}
+
+/* Ensure the input container allows dropdown to show */
+.relative input[list] {
+  position: relative;
+}
+
+.relative input[list]:focus + datalist,
+.relative input[list] + datalist {
+  display: block;
+}
+
+/* High z-index for form selects in inventory panel */
+.bg-gray-50 select {
+  z-index: 999999 !important;
+  position: relative !important;
+}
+
+.bg-gray-50 select:focus {
+  z-index: 1000000 !important;
+}
+
+/* =============================================================================
+   SALES PRICE LIST TABLE BUTTON STYLES
+   ============================================================================= */
+
+/* Botón Agregar Fila */
+.btn-add-row {
+  background: #3b82f6 !important; /* blue-600 */
+  color: white !important;
+  border: 1px solid transparent !important;
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.375rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.375rem !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.btn-add-row:hover:not(:disabled) {
+  background: #2563eb !important; /* blue-700 */
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Botones de colores y undo/redo para la tabla de precios */
+.btn-color-paint {
+  background: #16a34a !important; /* green-600 */
+  color: white !important;
+  border: 1px solid transparent !important;
+  padding: 0.5rem !important;
+  border-radius: 0.375rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+  min-width: 2rem !important;
+  min-height: 2rem !important;
+}
+
+.btn-color-paint:hover:not(:disabled) {
+  background: #15803d !important; /* green-700 */
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-color-clear {
+  background: #dc2626 !important; /* red-600 */
+  color: white !important;
+  border: 1px solid transparent !important;
+  padding: 0.5rem !important;
+  border-radius: 0.375rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+  min-width: 2rem !important;
+  min-height: 2rem !important;
+}
+
+.btn-color-clear:hover:not(:disabled) {
+  background: #b91c1c !important; /* red-700 */
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-undo-redo {
+  background: #4b5563 !important; /* gray-600 */
+  color: white !important;
+  border: 1px solid transparent !important;
+  padding: 0.5rem !important;
+  border-radius: 0.375rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+  min-width: 2rem !important;
+  min-height: 2rem !important;
+}
+
+.btn-undo-redo:hover:not(:disabled) {
+  background: #374151 !important; /* gray-700 */
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-undo-redo:disabled {
+  background: #9ca3af !important; /* gray-400 */
+  color: #6b7280 !important; /* gray-500 */
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Keep Save button visibly red when disabled due to duplicate SKUs
+   This overrides more generic :disabled rules which were forcing a gray background. */
+.btn-save-dup-disabled:disabled {
+  background: #dc2626 !important; /* red-600 */
+  color: #ffffff !important;
+  border-color: #b91c1c !important;
+  cursor: not-allowed !important;
+  opacity: 1 !important; /* keep it fully visible so user sees the error state */
+  box-shadow: none !important;
+}
+
+/* Ensure hover state doesn't change when disabled */
+.btn-save-dup-disabled:hover:disabled {
+  background: #dc2626 !important;
+}
+
+/* =============================================================================
+   HANDSONTABLE HEADER FIXES
+   ============================================================================= */
+
+/* Forzar tema básico para Handsontable */
+.handsontable {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+}
+
+/* HEADERS - Forzar visibilidad total */
+.handsontable thead th,
+.handsontable thead td {
+  background: #f8fafc !important;
+  background-color: #f8fafc !important;
+  color: #111827 !important;
+  border-bottom: 2px solid #d1d5db !important;
+  border-right: 1px solid #e5e7eb !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  padding: 0.5rem 0.75rem !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+  height: auto !important;
+  min-height: 2rem !important;
+  visibility: visible !important;
+  display: table-cell !important;
+  opacity: 1 !important;
+}
+
+/* Ensure Handsontable headers are visible and properly styled */
+.ht_master .ht_clone_top,
+.ht_master .ht_clone_top * {
+  z-index: 50 !important;
+}
+
+/* Make cloned headers have a solid background matching the table header */
+.ht_clone_top thead th,
+.ht_clone_top thead td {
+  background: #f8fafc !important;
+  color: #111827 !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  padding: 0.5rem 0.75rem !important;
+  visibility: visible !important;
+  display: table-cell !important;
+  opacity: 1 !important;
+}
+
+/* Ensure main table headers are also visible */
+.ht_master thead th,
+.ht_master thead td {
+  background: #f8fafc !important;
+  color: #111827 !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  padding: 0.5rem 0.75rem !important;
+  position: relative !important;
+  z-index: 10 !important;
+  visibility: visible !important;
+  display: table-cell !important;
+  opacity: 1 !important;
+}
+
+/* Force header visibility */
+.ht_master .ht__thead {
+  background: #f8fafc !important;
+  position: relative !important;
+  z-index: 20 !important;
+}
+
+.ht_master .ht__thead th {
+  background: #f8fafc !important;
+  color: #111827 !important;
+  border-bottom: 2px solid #d1d5db !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  padding: 0.5rem 0.75rem !important;
+  position: relative !important;
+  z-index: 15 !important;
+}
+
+/* Ensure header text is visible */
+.ht_master .ht__thead th .ht__colHeader {
+  color: #111827 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+/* Fix for dropdown menu in headers */
+.ht_master .htDropdownMenu {
+  z-index: 1000 !important;
+  background: white !important;
+  border: 1px solid #d1d5db !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* If any parent forces overflow hidden, allow the immediate parent of the HotTable to show overflow */
+.hot-table-wrapper {
+  overflow: visible !important;
+}
+
+/* Ensure the table container allows headers to be visible */
+.ht_master {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Force header row to be visible */
+.ht_master .ht__thead tr {
+  background: #f8fafc !important;
+  position: relative !important;
+  z-index: 25 !important;
+}
+
+/* Forzar visibilidad de celdas del cuerpo de la tabla */
+.handsontable tbody td,
+.handsontable tbody th {
+  visibility: visible !important;
+  display: table-cell !important;
+  opacity: 1 !important;
+  background: white !important;
+  color: #374151 !important;
+  border: 1px solid #e5e7eb !important;
+  padding: 0.5rem 0.75rem !important;
+}
+
+/* Asegurar que la tabla completa sea visible */
+.handsontable table {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: table !important;
+}
+
+/* Forzar contenedor de la tabla visible */
+.handsontable .wtHolder {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+  min-height: 400px !important;
+}
+
+/* Asegurar que el wrapper de HotTable tenga altura */
+.handsontable .ht_master .wtHolder {
+  min-height: 400px !important;
+  height: 100% !important;
+}
+
+/* Forzar overlays visibles */
+.ht_master,
+.ht_clone_top,
+.ht_clone_left,
+.ht_clone_corner,
+.ht_clone_bottom {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* Forzar que el contenedor principal de HotTable sea visible */
+.handsontable .wtHider {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* =============================================================================
+   Exchange Rate Widget styles (specific overrides to avoid global transparency)
+   ============================================================================= */
+.exchange-rate-widget {
+  background: rgba(255,255,255,0.10) !important; /* opaque card */
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.12) !important;
+}
+
+.exchange-rate-widget .text-sm,
+.exchange-rate-widget .text-xs,
+.exchange-rate-widget label {
+  color: rgba(255,255,255,0.95) !important;
+}
+
+.exchange-rate-widget input,
+.exchange-rate-widget select,
+.exchange-rate-widget textarea,
+.exchange-rate-widget .react-select__control {
+  background: rgba(255,255,255,0.06) !important; /* translucent input */
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  box-shadow: none !important;
+}
+
+.exchange-rate-widget input::placeholder {
+  color: rgba(255,255,255,0.75) !important;
+}
+
+/* react-select menu and portal z-index & colors */
+.exchange-rate-widget .react-select__menu {
+  z-index: 999999 !important;
+  color: #111827 !important;
+}
+.exchange-rate-widget .react-select__control--is-focused {
+  box-shadow: 0 0 0 2px rgba(99,102,241,0.12) !important;
+  border-color: rgba(99,102,241,0.6) !important;
+}
+
+/* Ensure the button keeps its gradient and is not overridden by generic button rules */
+.exchange-rate-widget .exchange-rate-btn {
+  background: linear-gradient(90deg,#2563eb 0%,#1e40af 100%) !important;
+  color: white !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+.exchange-rate-widget .exchange-rate-btn:disabled {
+  background: #9ca3af !important;
+  color: white !important;
+}
+
+/* Small helpers to ensure inner blocks are opaque */
+.exchange-rate-widget .bg-white\/#60,
+.exchange-rate-widget .bg-gray-50,
+.exchange-rate-widget .rounded-lg {
+  background-clip: padding-box;
+}
+
+/* Additional forced overrides to combat global transparency rules */
+.exchange-rate-widget,
+.exchange-rate-widget .exchange-rate-card,
+.exchange-rate-widget .react-select__control,
+.exchange-rate-widget input,
+.exchange-rate-widget select,
+.exchange-rate-widget textarea,
+.exchange-rate-widget .react-select__value-container,
+.exchange-rate-widget .react-select__single-value,
+.exchange-rate-widget .react-select__placeholder {
+  background: rgba(255,255,255,0.06) !important; /* ensure translucent input bg */
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+}
+
+/* Make sure labels and small text are visible */
+.exchange-rate-widget label,
+.exchange-rate-widget .text-xs,
+.exchange-rate-widget .text-sm {
+  color: rgba(255,255,255,0.95) !important;
+}
+
+/* React-select portal menu is rendered at body level; ensure it is visible and contrasted */
+.react-select__menu {
+  background: white !important;
+  color: #111827 !important;
+  border: 1px solid rgba(0,0,0,0.08) !important;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.12) !important;
+}
+.react-select__option {
+  color: #111827 !important;
+  background: white !important;
+}
+.react-select__option--is-focused,
+.react-select__option--is-selected {
+  background: #eff6ff !important;
+  color: #111827 !important;
+}
+
+/* Ensure the control has adequate height and padding */
+.exchange-rate-widget .react-select__control {
+  min-height: 42px !important;
+  padding: 2px 6px !important;
+}
+
+/* Tooltip helper for truncated table cells */
+.hot-tooltip {
+  position: relative;
+  overflow: visible !important;
+  z-index: 1;
+}
+
+.hot-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000000; /* force pure black for voucher tooltip */
+  color: #f9fafb;
+  font-weight: 700 !important;
+  font-size: 11px;
+  line-height: 1.2;
+  padding: 8px 10px;
+  border-radius: 4px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  white-space: normal;
+  width: 320px;
+  z-index: 99999;
+  transition: opacity 0.08s linear;
+}
+
+.hot-tooltip:hover::after {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Prevent inherited transparency from generic button rules */
+.exchange-rate-widget button {
+  background-clip: padding-box !important;
+}
+
+/* Make the widget container fully opaque for readability */
+.exchange-rate-widget {
+  background: rgba(17,24,39,0.72) !important; /* darker translucent for contrast */
+}
+
+/* -----------------------------------------------------------------------------
+   Light-card variant: when the widget is rendered inside a light card container
+   (e.g. to match other dashboard cards) we provide a high-specificity override
+   so the global .exchange-rate-widget rules don't force a dark background.
+   Use the class `exchange-rate-widget--in-card` on the inner widget wrapper.
+   -------------------------------------------------------------------------- */
+.exchange-rate-widget.exchange-rate-widget--in-card {
+  background: transparent !important; /* let the outer card's bg show */
+  color: #111827 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.exchange-rate-widget.exchange-rate-widget--in-card .text-sm,
+.exchange-rate-widget.exchange-rate-widget--in-card .text-xs,
+.exchange-rate-widget.exchange-rate-widget--in-card label {
+  color: #374151 !important; /* dark label color for light card */
+}
+
+.exchange-rate-widget.exchange-rate-widget--in-card input,
+.exchange-rate-widget.exchange-rate-widget--in-card select,
+.exchange-rate-widget.exchange-rate-widget--in-card textarea,
+.exchange-rate-widget.exchange-rate-widget--in-card .react-select__control {
+  background: white !important;
+  color: #111827 !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: none !important;
+}
+
+.exchange-rate-widget.exchange-rate-widget--in-card input::placeholder {
+  color: #9ca3af !important;
+}
+
+.exchange-rate-widget.exchange-rate-widget--in-card .react-select__menu {
+  background: white !important;
+  color: #111827 !important;
+}
+
+.exchange-rate-widget.exchange-rate-widget--in-card .exchange-rate-btn {
+  /* keep the gradient button but ensure text contrast on light bg */
+  color: white !important;
+}
+
+.exchange-rate-widget.exchange-rate-widget--in-card .react-select__control {
+  background: white !important;
+  border: 1px solid #e5e7eb !important;
+  color: #111827 !important;
+}
+
+.exchange-rate-widget.exchange-rate-widget--in-card .react-select__single-value {
+  color: #111827 !important;
+}
+
+.exchange-rate-widget.exchange-rate-widget--in-card .react-select__placeholder {
+  color: #9ca3af !important;
+}
+
+.exchange-rate-widget.exchange-rate-widget--in-card .react-select__input {
+  color: #111827 !important;
+}
+
+.exchange-rate-widget.exchange-rate-widget--in-card label,
+.exchange-rate-widget.exchange-rate-widget--in-card .text-xs,
+.exchange-rate-widget.exchange-rate-widget--in-card .text-sm {
+  color: #374151 !important;
+}
+
+.exchange-rate-widget.exchange-rate-widget--in-card .text-red-300 {
+  color: #dc2626 !important;
+}
+
+.exchange-rate-widget.exchange-rate-widget--in-card .text-white\/70 {
+  color: #6b7280 !important;
+}
+
+/* Asegurar que las tablas internas sean visibles */
+.handsontable .ht_clone_top table,
+.handsontable .ht_master table {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: table !important;
+}
+
+/* =============================================================================
+   CONFIRM MODAL STYLES
+   ============================================================================= */
+
+/* Confirm modal overlay */
+.confirm-modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2147483647;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+/* Confirm modal content */
+.confirm-modal-content {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  max-width: 28rem;
+  width: 100%;
+  margin: 0 1rem;
+  transition: all 0.3s;
+  transform: scale(1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid #e5e7eb;
+}
+
+.confirm-modal-content.exiting {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+/* Confirm modal header */
+.confirm-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.confirm-modal-title-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.confirm-modal-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.confirm-modal-close-btn {
+  color: #9ca3af;
+  transition: color 0.2s;
+}
+
+.confirm-modal-close-btn:hover {
+  color: #6b7280;
+}
+
+/* Confirm modal body */
+.confirm-modal-body {
+  margin-bottom: 1.5rem;
+}
+
+.confirm-modal-message {
+  color: #374151;
+}
+
+/* Confirm modal footer */
+.confirm-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.confirm-modal-btn-cancel {
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  font-weight: 500;
+  border-radius: 0.75rem;
+  background: transparent;
+  transition: background-color 0.2s;
+}
+
+.confirm-modal-btn-cancel:hover {
+  background: #f9fafb;
+}
+
+.confirm-modal-btn-confirm {
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+}
+
+/* Confirm button variants */
+.confirm-modal-btn-confirm.error {
+  background: #fef2f2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+.confirm-modal-btn-confirm.error:hover {
+  background: #fef2f2;
+}
+
+.confirm-modal-btn-confirm.success {
+  background: #16a34a;
+  color: white;
+}
+
+.confirm-modal-btn-confirm.success:hover {
+  background: #15803d;
+}
+
+.confirm-modal-btn-confirm.warning {
+  background: #2563eb;
+  color: white;
+}
+
+.confirm-modal-btn-confirm.warning:hover {
+  background: #1d4ed8;
+}
+
+/* =============================================================================
+   ICON STYLES
+   ============================================================================= */
+
+/* Refresh icon for BCRA exchange rate buttons */
+.icon-refresh {
+  width: 1rem;
+  height: 1rem;
+  color: white;
+  display: inline-block;
+}
+
+.icon-refresh.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Notification container */
+.notification-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2147483647;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Notification item */
+.notification-item {
+  max-width: 24rem;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  padding: 1rem;
+  transition: all 0.3s;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.notification-item.exiting {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+/* Notification header */
+.notification-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.notification-icon {
+  flex-shrink: 0;
+}
+
+.notification-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-message {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.notification-close-btn {
+  flex-shrink: 0;
+  color: #6b7280;
+  transition: color 0.2s;
+}
+
+.notification-close-btn:hover {
+  color: #374151;
+}
+
+/* Notification variants */
+.notification-success .notification-icon {
+  color: #16a34a;
+}
+
+.notification-error .notification-icon {
+  color: #dc2626;
+}
+
+.notification-warning .notification-icon {
+  color: #d97706;
+}
+
+.notification-info .notification-icon {
+  color: #2563eb;
+}
+
+.notification-success {
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+.notification-error {
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.notification-warning {
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.notification-info {
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+/* Account initials button for collapsed panel */
+.account-initials-btn {
+  opacity: 1 !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8) !important;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.account-initials-btn:hover {
+  background-color: rgba(255, 255, 255, 1) !important;
+  transform: scale(1.05);
+}
+
+.account-initials-btn.selected {
+  background-color: rgba(59, 130, 246, 1) !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* =============================================================================
+   TABLA DE ÍTEMS (COMPONENTE COMÚN)
+   ============================================================================= */
+
+/* Tabla base */
+.tabla-items {
+  width: 100%;
+  font-size: 0.75rem; /* 12px */
+  border-collapse: collapse;
+}
+
+/* Header de la tabla */
+.tabla-items-header {
+  background-color: #f9fafb;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tabla-items-th {
+  padding: 0.5rem 0.5rem; /* py-2 px-2 */
+  font-weight: 600;
+  color: #6b7280;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tabla-items-th-code {
+  width: 15%;
+}
+
+.tabla-items-th-description {
+  width: 30%;
+}
+
+.tabla-items-th-qty {
+  text-align: right;
+  width: 8%;
+}
+
+.tabla-items-th-uom {
+  text-align: center;
+  width: 10%;
+}
+
+.tabla-items-th-warehouse {
+  width: 25%;
+}
+
+.tabla-items-th-actions {
+  text-align: center;
+  width: 8%;
+}
+
+/* Body de la tabla */
+.tabla-items-body {
+  background-color: white;
+}
+
+.tabla-items-row {
+  transition: background-color 0.15s ease;
+}
+
+.tabla-items-row:hover {
+  background-color: #f9fafb;
+}
+
+/* Contenedor de la tabla con altura máxima de 8 filas */
+.tabla-items-container {
+  max-height: calc(2.5rem + (8 * 2.75rem)); /* Header (2.5rem) + 8 filas * altura por fila (2.75rem) */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Scrollbar personalizado para el contenedor de la tabla */
+.tabla-items-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tabla-items-container::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.tabla-items-container::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 4px;
+}
+
+.tabla-items-container::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+.tabla-items-td {
+  padding: 0.25rem 0.5rem; /* Reducido de py-1 a py-0.5 para menos espacio entre filas */
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.tabla-items-td-actions {
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid #f3f4f6;
+}
+textarea.tabla-items-input {
+  line-height: 16px;
+}
+
+/* Inputs de la tabla - MÁS GRANDES */
+.tabla-items-input {
+	    height: auto;
+	  width: 100%;
+	  padding: 0.5rem 0.75rem; /* Aumentado de px-1 py-0.5 a px-3 py-2 */
+	  font-size: 0.75rem; /* 12px */
+	  border: 1px solid #d1d5db;
+	  border-radius: 0.375rem;
+	  transition: all 0.2s ease;
+	}
+
+/* Centrar texto verticalmente en inputs/selects de tabla-items (evita desalineación) */
+.tabla-items-input:not(textarea),
+.tabla-items-select-uom,
+.tabla-items-select-warehouse,
+.tabla-items-input-qty {
+  height: 34px;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 34px;
+}
+
+.tabla-items-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  border-color: #3b82f6;
+}
+
+.tabla-items-input-qty {
+  width: 3.5rem; /* Aumentado de w-12 a w-14 */
+  text-align: right;
+  padding: 0.5rem 0.75rem; /* Aumentado */
+  font-size: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.tabla-items-input-qty:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  border-color: #3b82f6;
+}
+
+/* Selects de la tabla - MÁS GRANDES */
+.tabla-items-select-uom {
+  width: 5rem; /* Aumentado de w-16 */
+  text-align: center;
+  padding: 0.5rem 0.5rem; /* Aumentado */
+  font-size: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  background-color: white;
+  transition: all 0.2s ease;
+}
+
+.tabla-items-select-uom:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  border-color: #3b82f6;
+}
+
+/* Remove native dropdown arrow for selects that reuse the tabla-items-input styles
+   This hides the visual arrow glyph but keeps full dropdown functionality when
+   the user clicks the control. Targets only <select class="tabla-items-input">.
+*/
+select.tabla-items-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: none;
+  /* keep the background transparent as used by the component */
+  background-color: transparent;
+  /* ensure some right padding so text isn't flush to the edge */
+  padding-right: 0.75rem;
+}
+
+/* Remove the IE/Edge expand glyph */
+select.tabla-items-input::-ms-expand {
+  display: none;
+}
+
+.tabla-items-select-warehouse {
+  width: 100%;
+  padding: 0.5rem 0.75rem; /* Aumentado */
+  font-size: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  background-color: white;
+  transition: all 0.2s ease;
+}
+
+.tabla-items-select-warehouse:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  border-color: #3b82f6;
+}
+
+/* =============================================================================
+   REACT-SELECT DENTRO DE TABLA-ITEMS
+   ============================================================================= */
+
+/* Forzar color de texto visible en react-select dentro de la tabla de items */
+.tabla-items-td .css-1dimb5e-singleValue,
+.tabla-items-td [class*="-singleValue"] {
+  color: #1f2937 !important;
+}
+
+.tabla-items-td .css-1jqq78o-placeholder,
+.tabla-items-td [class*="-placeholder"] {
+  color: #9ca3af !important;
+}
+
+.tabla-items-td .css-qbdosj-Input input,
+.tabla-items-td [class*="-Input"] input {
+  color: #1f2937 !important;
+}
+
+/* Asegurar que el input visible tenga color correcto */
+.tabla-items-td input[type="text"] {
+  color: #1f2937 !important;
+}
+
+/* React-select control dentro de tabla */
+.tabla-items-td [class*="-control"] {
+  background-color: white !important;
+  min-height: 34px !important;
+  height: 34px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.tabla-items-td [class*="-control"] input {
+  color: #1f2937 !important;
+}
+
+/* Opciones del menú */
+.tabla-items-td [class*="-option"] {
+  color: #1f2937 !important;
+}
+
+/* Action toolbar + chips -------------------------------------------------- */
+
+.action-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1.75rem;
+  background: linear-gradient(120deg, rgba(249, 250, 251, 0.92), rgba(243, 244, 246, 0.75));
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  box-shadow: 0 12px 25px -15px rgba(15, 23, 42, 0.45);
+  flex-wrap: wrap;
+}
+
+.action-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.90rem;
+  min-width: 220px;
+}
+
+.action-toolbar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #fff;
+  box-shadow: 0 8px 20px -12px rgba(109, 40, 217, 0.9);
+}
+
+.action-toolbar-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.action-toolbar-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0;
+}
+
+.action-toolbar-subtitle {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin: 0.1rem 0 0;
+}
+
+.action-chip-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.action-chip-dropdown {
+  position: relative;
+}
+
+.action-chip {
+  --chip-accent: linear-gradient(135deg, #6b7280, #111827);
+  border: 1px solid rgba(209, 213, 219, 0.85);
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 9999px;
+  padding: 0.1rem 0.35rem 0.1rem 0.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  box-shadow: 0 6px 15px -12px rgba(15, 23, 42, 0.6);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.action-chip:hover:not(.is-disabled),
+.action-chip:focus-visible:not(.is-disabled) {
+  border-color: rgba(156, 163, 175, 0.9);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px -10px rgba(15, 23, 42, 0.55);
+}
+
+.action-chip:focus-visible {
+  outline: 2px solid rgba(107, 114, 128, 0.35);
+  outline-offset: 2px;
+}
+
+.action-chip-icon {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.75rem;
+  background: var(--chip-accent);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.action-chip-icon-svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.action-chip-body {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-width: 0;
+  opacity: 0;
+  transition: all 0.25s ease;
+}
+
+.action-chip:hover .action-chip-body,
+.action-chip:focus-visible .action-chip-body,
+.action-chip:focus .action-chip-body {
+  max-width: 180px;
+  opacity: 1;
+  margin-left: 0.2rem;
+}
+
+.action-chip-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #111827;
+  white-space: nowrap;
+}
+
+.action-chip-helper {
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.action-chip.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.action-chip.is-disabled .action-chip-body {
+  display: none;
+}
+
+.action-chip--text .action-chip-body {
+  max-width: none !important;
+  opacity: 1 !important;
+  margin-left: 0 !important;
+}
+
+.action-chip--text .action-chip-label {
+  font-size: 0.72rem;
+}
+
+.action-chip--invoice {
+  --chip-accent: linear-gradient(140deg, #111827, #4b5563);
+}
+
+.action-chip--remito {
+  --chip-accent: linear-gradient(140deg, #7c3aed, #6d28d9);
+}
+
+.action-chip--order {
+    --chip-accent: linear-gradient(140deg, #f97316, #ea580c);
+}
+
+.action-chip--quotation {
+    --chip-accent: linear-gradient(140deg, #111827, #0ea5e9);
+}
+
+.action-chip--payment {
+    --chip-accent: linear-gradient(140deg, #059669, #047857);
+}
+
+.action-chip--reconcile {
+  --chip-accent: linear-gradient(140deg, #0ea5e9, #2563eb);
+}
+
+/* Purchase Order modal ---------------------------------------------------- */
+.po-field-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.po-field-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #111827;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 0.55rem 0.9rem;
+}
+
+.po-input {
+  width: 100%;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  background-color: #fff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.po-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.action-chip--document {
+  --chip-accent: linear-gradient(140deg, #0f172a, #1f2937);
+}
+
+@media (max-width: 768px) {
+  .action-toolbar {
+    border-radius: 1.25rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .action-chip-group {
+    justify-content: flex-start;
+  }
+}
+
+
+
+.tabla-items-quick-create-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #047857;
+  background: #ecfdf5;
+  border: 1px dashed #047857;
+  border-radius: 9999px;
+  padding: 0.2rem 0.6rem;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.tabla-items-quick-create-btn:hover {
+  color: #ffffff;
+  background: #059669;
+  border-color: #059669;
+}
+

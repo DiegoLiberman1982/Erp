@@ -1,0 +1,26 @@
+{
+  "active_companies": {
+    "user_7cabe478f239f9dc": "DIEGO EZEQUIEL LIBERMAN PASIK",
+    "Administrator": "MUTANTBAIKY S.A.S.",
+    "diegoezequielliberman@gmail.com": "Empresa Demo"
+  },
+  "formula_history": {
+    "Administrator_MUTANTBAIKY S.A.S.": [
+      "IF(price.compra > 33000, price.compra * 2 + 5800, price.compra * 2)"
+    ],
+    "diegoezequielliberman@gmail.com_ADRIANA NOEMI CHARYTON": [
+      "price.compra * 2"
+    ]
+  },
+  "inventory_preferences": {
+    "Administrator_MUTANTBAIKY S.A.S.": "products",
+    "Administrator_ADRIANA NOEMI CHARYTON": "products",
+    "diegoezequielliberman@gmail.com_ADRIANA NOEMI CHARYTON": "products",
+    "diegoezequielliberman@gmail.com_MUTANTBAIKY S.A.S.": "products",
+    "diegoezequielliberman@gmail.com_Empresa Demo": "products"
+  },
+  "company_item_counts": {
+    "MUTANTBAIKY S.A.S.": 3523,
+    "ADRIANA NOEMI CHARYTON": 0
+  }
+}

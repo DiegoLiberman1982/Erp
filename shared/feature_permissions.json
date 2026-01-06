@@ -1,0 +1,172 @@
+{
+  "features": [
+    {
+      "id": "dashboard",
+      "label": "Dashboard",
+      "area": "sidebar",
+      "description": "Panel principal con widgets de pedidos, tipo de cambio y accesos rápidos.",
+      "requires_any_role": ["System Manager", "Administrator", "Desk User", "Sales Manager", "Sales User", "Purchase Manager", "Accounts Manager", "Accounts User", "Stock Manager", "Analytics", "Report Manager", "Dashboard Manager"],
+      "requires_all_roles": [],
+      "erpnext_docs": ["Currency Exchange", "Sales Order", "Dashboard", "Notification Log"],
+      "backend_endpoints": ["/api/cotizaciones", "/api/currency-exchange", "/api/currency-exchange/latest", "/api/sales-orders/metrics"],
+      "frontend_components": ["Main.jsx", "ExchangeRateWidget.jsx", "SalesOrdersWidget.jsx", "OrdersList.jsx"],
+      "notes": "Si el usuario no tiene ninguno de estos roles, verá errores 403 al cargar métricas del dashboard."
+    },
+    {
+      "id": "customers",
+      "label": "Clientes",
+      "area": "sidebar",
+      "description": "Gestión integral de clientes, facturas, cobros, remitos y estados de cuenta.",
+      "requires_any_role": ["System Manager", "Administrator", "Sales Manager", "Sales User", "Sales Master Manager", "Accounts Manager", "Accounts User", "Support Team"],
+      "requires_all_roles": [],
+      "erpnext_docs": ["Customer", "Sales Invoice", "Payment Entry", "Delivery Note", "Sales Order", "Address"],
+      "backend_endpoints": ["/api/customers", "/api/customer-invoices", "/api/customer-statements", "/api/pagos/customer-payments", "/api/sales-orders", "/api/remitos", "/api/invoices", "/api/addresses", "/api/document-linking"],
+      "frontend_components": ["CustomerPanel.jsx", "RemitoModal.jsx", "InvoiceModal.jsx", "DocumentLinkerModal.jsx"],
+      "notes": "Sin estos permisos el panel intenta abrir DocTypes restringidos y ERPNext responde con 403."
+    },
+    {
+      "id": "orders",
+      "label": "Proveedores",
+      "area": "sidebar",
+      "description": "Panel de compras, proveedores, órdenes y facturas de compra.",
+      "requires_any_role": ["System Manager", "Administrator", "Purchase Manager", "Purchase User", "Purchase Master Manager", "Accounts Manager", "Accounts User"],
+      "requires_all_roles": [],
+      "erpnext_docs": ["Supplier", "Purchase Order", "Purchase Invoice", "Payment Entry", "Item Price"],
+      "backend_endpoints": ["/api/suppliers", "/api/purchase-invoices", "/api/purchase-orders", "/api/purchase-price-lists", "/api/document-linking"],
+      "frontend_components": ["SupplierPanel.jsx", "PurchaseInvoiceModal.jsx", "PurchaseOrderModal.jsx"],
+      "notes": "Requiere permisos de Buying y Accounts. De lo contrario ERPNext bloquea consultas de proveedores."
+    },
+    {
+      "id": "inventory",
+      "label": "Inventario",
+      "area": "sidebar",
+      "description": "Catálogo de ítems, movimientos, kits y configuración de almacenes.",
+      "requires_any_role": ["System Manager", "Administrator", "Stock Manager", "Stock User", "Item Manager", "Manufacturing Manager", "Manufacturing User", "Delivery Manager", "Fulfillment User"],
+      "requires_all_roles": [],
+      "erpnext_docs": ["Item", "Warehouse", "Stock Entry", "Stock Ledger Entry", "Product Bundle"],
+      "backend_endpoints": ["/api/inventory/items", "/api/inventory/movements", "/api/warehouses", "/api/kits", "/api/remitos", "/api/item-groups"],
+      "frontend_components": ["InventoryPanel.jsx", "ItemListPanel.jsx", "KitPanel.jsx", "RemitoModal.jsx"],
+      "notes": "Necesita roles de Stock; sin ellos ERPNext niega acceso a Item, Warehouse o Stock Entry."
+    },
+    {
+      "id": "import",
+      "label": "Importación",
+      "area": "sidebar",
+      "description": "Herramientas para importar listas de precios, artículos y kits.",
+      "requires_any_role": ["System Manager", "Administrator", "Purchase Manager", "Purchase User", "Sales Manager", "Sales Master Manager", "Item Manager"],
+      "requires_all_roles": [],
+      "erpnext_docs": ["Price List", "Item Price", "Item", "Product Bundle"],
+      "backend_endpoints": ["/api/import/items", "/api/sales-price-lists/import", "/api/purchase-price-lists/import", "/api/price-list-automation"],
+      "frontend_components": ["ImportPanel.jsx", "SalesPriceListManager.jsx", "PurchasePriceListManager.jsx", "ItemImport.jsx"],
+      "notes": "Sin permisos maestros (Sales Master Manager / Purchase Master Manager) ERPNext bloquea las listas."
+    },
+    {
+      "id": "finance",
+      "label": "Finanzas",
+      "area": "sidebar",
+      "description": "Conciliación bancaria, tesorería y movimientos contables resumidos.",
+      "requires_any_role": ["System Manager", "Administrator", "Accounts Manager", "Accounts User", "Auditor", "Analytics"],
+      "requires_all_roles": [],
+      "erpnext_docs": ["Bank Account", "Payment Entry", "Journal Entry"],
+      "backend_endpoints": ["/api/treasury-accounts", "/api/treasury-accounts/<name>", "/api/pagos", "/api/reconciliation", "/api/currency-exchange"],
+      "frontend_components": ["FinancePanel.jsx"],
+      "notes": "Se apoya 100% en DocTypes de Accounts, por eso exige roles contables."
+    },
+    {
+      "id": "accounting",
+      "label": "Contabilidad",
+      "area": "sidebar",
+      "description": "Plan de cuentas, asientos contables y reportes GL.",
+      "requires_any_role": ["System Manager", "Administrator", "Accounts Manager", "Accounts User", "Auditor"],
+      "requires_all_roles": [],
+      "erpnext_docs": ["Account", "Journal Entry", "GL Entry", "Payment Terms Template"],
+      "backend_endpoints": ["/api/accounts", "/api/journal-entries", "/api/gl-entries", "/api/trial-balance", "/api/payment-terms-templates"],
+      "frontend_components": ["AccountingPanel.jsx"],
+      "notes": "Sin roles de Accounts, ERPNext bloquea cada llamada de este panel."
+    },
+    {
+      "id": "reports",
+      "label": "Reportes",
+      "area": "sidebar",
+      "description": "Reportes de listas de precios y variaciones comerciales.",
+      "requires_any_role": ["System Manager", "Administrator", "Sales Manager", "Sales User", "Purchase Manager", "Accounts Manager", "Report Manager", "Dashboard Manager", "Analytics"],
+      "requires_all_roles": [],
+      "erpnext_docs": ["Price List", "Item Price", "Sales Invoice", "Purchase Invoice"],
+      "backend_endpoints": ["/api/reports/price-lists", "/api/price-list-reports", "/api/price-list-automation"],
+      "frontend_components": ["ReportsPage.jsx", "ListadePrecios/* components"],
+      "notes": "Los reportes calculan precios usando DocTypes de ventas y compras, por eso requieren ambos módulos."
+    },
+    {
+      "id": "settings",
+      "label": "Configuración",
+      "area": "sidebar",
+      "description": "Pantalla de configuración avanzada, creación de plantillas e instalación inicial.",
+      "requires_any_role": ["System Manager", "Administrator", "Workspace Manager", "Script Manager"],
+      "requires_all_roles": [],
+      "erpnext_docs": ["Company", "DocType", "Custom Field", "Item Tax Template"],
+      "backend_endpoints": ["/api/setup/*", "/api/setup2/*", "/api/companies", "/api/config/*"],
+      "frontend_components": ["ConfigurationSettings.jsx", "Setup modals"],
+      "notes": "Se muestra solo a perfiles administrativos. Usuarios sin System Manager no deberían verla."
+    },
+    {
+      "id": "user-profile",
+      "label": "Perfil de Usuario",
+      "area": "modal",
+      "description": "Panel donde cada usuario ve y edita sus datos básicos.",
+      "requires_any_role": [],
+      "requires_all_roles": [],
+      "erpnext_docs": ["User", "User Permission"],
+      "backend_endpoints": ["/api/users/<usuario>", "/api/users/<usuario>/companies"],
+      "frontend_components": ["UserProfilePage.jsx"],
+      "notes": "Debe estar disponible para todos los usuarios porque aquí pueden cambiar preferencias."
+    },
+    {
+      "id": "manage-users",
+      "label": "Gestión de Usuarios",
+      "area": "user-profile-tab",
+      "description": "Permite crear, editar y eliminar usuarios dentro de Flowint.",
+      "requires_any_role": ["System Manager", "Administrator"],
+      "requires_all_roles": [],
+      "erpnext_docs": ["User", "Has Role", "User Permission"],
+      "backend_endpoints": ["/api/users", "/api/users/<name>", "/api/roles", "/api/users/<name>/companies"],
+      "frontend_components": ["UserProfilePanel.jsx", "CreateUserModal.jsx"],
+      "notes": "Solo debe aparecer para administradores."
+    },
+    {
+      "id": "notifications",
+      "label": "Notificaciones (Header)",
+      "area": "header",
+      "description": "Campana de notificaciones y panel lateral de avisos.",
+      "requires_any_role": ["System Manager", "Administrator", "Desk User", "Sales Manager", "Purchase Manager", "Accounts Manager", "Support Team", "Inbox User"],
+      "requires_all_roles": [],
+      "erpnext_docs": ["Notification Log", "Communication"],
+      "backend_endpoints": ["/api/notifications"],
+      "frontend_components": ["Header.jsx", "NotificationPanel.jsx"],
+      "notes": "Si no tiene acceso a Notification Log, ERPNext devuelve 403 al abrir la campana."
+    },
+    {
+      "id": "company-switcher",
+      "label": "Selector de Compañía",
+      "area": "header",
+      "description": "Botón para cambiar la empresa activa y sincronizar el prefijo.",
+      "requires_any_role": ["System Manager", "Administrator", "Accounts Manager", "Accounts User"],
+      "requires_all_roles": [],
+      "erpnext_docs": ["Company", "User Permission"],
+      "backend_endpoints": ["/api/companies", "/api/active-company"],
+      "frontend_components": ["Header.jsx"],
+      "notes": "Ocúltalo si el usuario no tiene permisos multi-empresa; evita errores al aplicar filtros."
+    },
+    {
+      "id": "header-settings",
+      "label": "Acceso rápido a Configuración",
+      "area": "header",
+      "description": "Ícono de engranaje que abre directamente la vista de Configuración.",
+      "requires_any_role": ["System Manager", "Administrator"],
+      "requires_all_roles": [],
+      "erpnext_docs": ["Company", "DocType", "Custom Field"],
+      "backend_endpoints": ["/api/setup/*", "/api/config/*"],
+      "frontend_components": ["Header.jsx"],
+      "notes": "Replica el mismo conjunto de permisos que el módulo Configuración."
+    }
+  ]
+}

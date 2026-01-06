@@ -1,0 +1,190 @@
+{
+  "_doc": {
+    "description": "Configuración de retenciones SUFRIDAS en cobros de VENTA para Argentina. Las retenciones sufridas se registran en el ACTIVO (son créditos fiscales a favor de la empresa). El cliente actúa como agente de retención y descuenta el importe del pago.",
+    "withholding_types": ["INGRESOS_BRUTOS", "IVA", "GANANCIAS", "SUSS"],
+    "province_rules": {
+      "INGRESOS_BRUTOS": "provincia obligatoria (código 901-924)",
+      "IVA": "provincia prohibida",
+      "GANANCIAS": "provincia prohibida",
+      "SUSS": "provincia prohibida"
+    },
+    "account_structure": {
+      "note": "Las cuentas corresponden al plan de cuentas argentino estándar (ar_chart_corregido). Las retenciones de IIBB usan cuentas por provincia, las demás tienen cuenta única.",
+      "retenciones_iibb": "1.1.4.01.04.25-48 - Retenciones IIBB por provincia",
+      "retenciones_iva": "1.1.4.01.10.02 - Retenciones de IVA",
+      "retenciones_ganancias": "1.1.4.01.03.02 - Retenciones Impto. a las Ganancias",
+      "retenciones_suss": "1.1.4.01.13 - Retenciones SUSS"
+    },
+    "usage_notes": {
+      "total_amount": "OBLIGATORIO - Importe total retenido",
+      "base_amount": "OPCIONAL - Base imponible sobre la que se calculó",
+      "percentage": "OPCIONAL - Alícuota aplicada",
+      "regimen": "INFORMATIVO - Define si es retención interna, aduanera u otra variante"
+    }
+  },
+  "companies": {
+    "_default": {
+      "INGRESOS_BRUTOS": {
+        "901": {
+          "default_account": "1.1.4.01.04.48",
+          "account_name": "Retenciones IIBB - Ciudad Autónoma de Buenos Aires"
+        },
+        "902": {
+          "default_account": "1.1.4.01.04.25",
+          "account_name": "Retenciones IIBB - Buenos Aires"
+        },
+        "903": {
+          "default_account": "1.1.4.01.04.26",
+          "account_name": "Retenciones IIBB - Catamarca"
+        },
+        "904": {
+          "default_account": "1.1.4.01.04.29",
+          "account_name": "Retenciones IIBB - Córdoba"
+        },
+        "905": {
+          "default_account": "1.1.4.01.04.30",
+          "account_name": "Retenciones IIBB - Corrientes"
+        },
+        "906": {
+          "default_account": "1.1.4.01.04.27",
+          "account_name": "Retenciones IIBB - Chaco"
+        },
+        "907": {
+          "default_account": "1.1.4.01.04.28",
+          "account_name": "Retenciones IIBB - Chubut"
+        },
+        "908": {
+          "default_account": "1.1.4.01.04.31",
+          "account_name": "Retenciones IIBB - Entre Ríos"
+        },
+        "909": {
+          "default_account": "1.1.4.01.04.32",
+          "account_name": "Retenciones IIBB - Formosa"
+        },
+        "910": {
+          "default_account": "1.1.4.01.04.33",
+          "account_name": "Retenciones IIBB - Jujuy"
+        },
+        "911": {
+          "default_account": "1.1.4.01.04.34",
+          "account_name": "Retenciones IIBB - La Pampa"
+        },
+        "912": {
+          "default_account": "1.1.4.01.04.35",
+          "account_name": "Retenciones IIBB - La Rioja"
+        },
+        "913": {
+          "default_account": "1.1.4.01.04.36",
+          "account_name": "Retenciones IIBB - Mendoza"
+        },
+        "914": {
+          "default_account": "1.1.4.01.04.37",
+          "account_name": "Retenciones IIBB - Misiones"
+        },
+        "915": {
+          "default_account": "1.1.4.01.04.38",
+          "account_name": "Retenciones IIBB - Neuquén"
+        },
+        "916": {
+          "default_account": "1.1.4.01.04.39",
+          "account_name": "Retenciones IIBB - Río Negro"
+        },
+        "917": {
+          "default_account": "1.1.4.01.04.40",
+          "account_name": "Retenciones IIBB - Salta"
+        },
+        "918": {
+          "default_account": "1.1.4.01.04.41",
+          "account_name": "Retenciones IIBB - San Juan"
+        },
+        "919": {
+          "default_account": "1.1.4.01.04.42",
+          "account_name": "Retenciones IIBB - San Luis"
+        },
+        "920": {
+          "default_account": "1.1.4.01.04.43",
+          "account_name": "Retenciones IIBB - Santa Cruz"
+        },
+        "921": {
+          "default_account": "1.1.4.01.04.44",
+          "account_name": "Retenciones IIBB - Santa Fe"
+        },
+        "922": {
+          "default_account": "1.1.4.01.04.45",
+          "account_name": "Retenciones IIBB - Santiago del Estero"
+        },
+        "923": {
+          "default_account": "1.1.4.01.04.46",
+          "account_name": "Retenciones IIBB - Tierra del Fuego"
+        },
+        "924": {
+          "default_account": "1.1.4.01.04.47",
+          "account_name": "Retenciones IIBB - Tucumán"
+        },
+        "_any_province": {
+          "default_account": "1.1.4.01.04",
+          "account_name": "Percepciones y Retenciones Impto. a los Ingresos Brutos"
+        }
+      },
+      "IVA": {
+        "default_account": "1.1.4.01.10.02",
+        "account_name": "Retenciones de IVA"
+      },
+      "GANANCIAS": {
+        "default_account": "1.1.4.01.03.02",
+        "account_name": "Retenciones Impto. a las Ganancias"
+      },
+      "SUSS": {
+        "default_account": "1.1.4.01.13",
+        "account_name": "Retenciones SUSS"
+      }
+    }
+  },
+  "provinces": {
+    "_doc": "Mapeo de código jurisdicción AFIP a nombre de provincia",
+    "901": "Ciudad Autónoma de Buenos Aires",
+    "902": "Buenos Aires",
+    "903": "Catamarca",
+    "904": "Córdoba",
+    "905": "Corrientes",
+    "906": "Chaco",
+    "907": "Chubut",
+    "908": "Entre Ríos",
+    "909": "Formosa",
+    "910": "Jujuy",
+    "911": "La Pampa",
+    "912": "La Rioja",
+    "913": "Mendoza",
+    "914": "Misiones",
+    "915": "Neuquén",
+    "916": "Río Negro",
+    "917": "Salta",
+    "918": "San Juan",
+    "919": "San Luis",
+    "920": "Santa Cruz",
+    "921": "Santa Fe",
+    "922": "Santiago del Estero",
+    "923": "Tierra del Fuego",
+    "924": "Tucumán"
+  },
+  "regimens": {
+    "_doc": "Regímenes de retenciones - el régimen es informativo y define si es interna/aduanera/etc. No modifica la cuenta contable.",
+    "IVA": {
+      "RG2126": "Retención IVA RG 2126 (Régimen General)",
+      "RG4815": "Retención IVA RG 4815 (Aduanera)",
+      "RG830": "Retención IVA RG 830"
+    },
+    "INGRESOS_BRUTOS": {
+      "RG18": "Retención IIBB Régimen General",
+      "CM": "Retención IIBB Convenio Multilateral",
+      "SIRCREB": "Retención IIBB SIRCREB"
+    },
+    "GANANCIAS": {
+      "RG830": "Retención Ganancias RG 830 (Régimen General)",
+      "RG4815": "Retención Ganancias RG 4815 (Aduanera)"
+    },
+    "SUSS": {
+      "RG79": "Retención SUSS RG 79"
+    }
+  }
+}

@@ -1,0 +1,597 @@
+{
+  "document_types": [
+    {
+      "code": "80",
+      "description": "CUIT"
+    },
+    {
+      "code": "86",
+      "description": "CUIL"
+    },
+    {
+      "code": "87",
+      "description": "CDI"
+    },
+    {
+      "code": "89",
+      "description": "LE"
+    },
+    {
+      "code": "90",
+      "description": "LC"
+    },
+    {
+      "code": "91",
+      "description": "CI Extranjera"
+    },
+    {
+      "code": "92",
+      "description": "En tramite"
+    },
+    {
+      "code": "93",
+      "description": "Acta Nacimiento"
+    },
+    {
+      "code": "95",
+      "description": "DNI"
+    },
+    {
+      "code": "96",
+      "description": "DNI Nueva"
+    },
+    {
+      "code": "99",
+      "description": "Consumidor Final"
+    }
+  ],
+  "letras": [
+    "A",
+    "B",
+    "C",
+    "M",
+    "E",
+    "R",
+    "X"
+  ],
+  "currency_aliases": {
+    "$": "ARS",
+    "ARS": "ARS",
+    "PES": "ARS",
+    "USD": "USD",
+    "US$": "USD",
+    "U$S": "USD",
+    "EUR": "EUR",
+    "€": "EUR"
+  },
+  "tipos_comprobante": [
+    {
+      "tipo": "FAC",
+      "descripcion": "Factura"
+    },
+    {
+      "tipo": "NDB",
+      "descripcion": "Nota de Débito"
+    },
+    {
+      "tipo": "NCC",
+      "descripcion": "Nota de Crédito"
+    },
+    {
+      "tipo": "REC",
+      "descripcion": "Recibo"
+    },
+    {
+      "tipo": "TIQ",
+      "descripcion": "Ticket"
+    },
+    {
+      "tipo": "TFA",
+      "descripcion": "Tique Factura"
+    },
+    {
+      "tipo": "TNC",
+      "descripcion": "Tique Nota de Crédito"
+    },
+    {
+      "tipo": "TND",
+      "descripcion": "Tique Nota de Débito"
+    },
+    {
+      "tipo": "FCE",
+      "descripcion": "Factura de Crédito Electrónica MiPyMEs"
+    },
+    {
+      "tipo": "NCE",
+      "descripcion": "Nota de Crédito Electrónica MiPyMEs"
+    },
+    {
+      "tipo": "NDE",
+      "descripcion": "Nota de Débito Electrónica MiPyMEs"
+    },
+    {
+      "tipo": "DES",
+      "descripcion": "Despacho de Importación"
+    },
+    {
+      "tipo": "REM",
+      "descripcion": "Remito Electrónico"
+    },
+    {
+      "tipo": "INF",
+      "descripcion": "Informe Diario de Cierre (Zeta)"
+    }
+    ,
+    {
+      "tipo": "FACX",
+      "descripcion": "Factura X (Resguardo)"
+    }
+  ],
+  "codigos_afip": {
+    "FAC": {
+      "A": "001",
+      "B": "006",
+      "C": "011",
+      "M": "051",
+      "E": "019"
+    },
+    "NDB": {
+      "A": "002",
+      "B": "007",
+      "C": "012",
+      "M": "052",
+      "E": "020"
+    },
+    "NCC": {
+      "A": "003",
+      "B": "008",
+      "C": "013",
+      "M": "053",
+      "E": "021"
+    },
+    "REC": {
+      "A": "004",
+      "B": "009",
+      "C": "015",
+      "M": "054"
+    },
+    "TIQ": {
+      "X": "083"
+    },
+    "TFA": {
+      "A": "081",
+      "B": "082",
+      "C": "111",
+      "M": "118"
+    },
+    "TNC": {
+      "X": "110",
+      "A": "112",
+      "B": "113",
+      "C": "114",
+      "M": "119"
+    },
+    "TND": {
+      "A": "115",
+      "B": "116",
+      "C": "117",
+      "M": "120"
+    },
+    "FCE": {
+      "A": "201",
+      "B": "206",
+      "C": "211"
+    },
+    "NDE": {
+      "A": "202",
+      "B": "207",
+      "C": "212"
+    },
+    "NCE": {
+      "A": "203",
+      "B": "208",
+      "C": "213"
+    },
+    "DES": {
+      "X": "066"
+    },
+    "REM": {
+      "E": "088",
+      "R": "091"
+    },
+    "INF": {
+      "X": "080"
+    }
+    ,
+    "FACX": {
+      "X": "999"
+    }
+  },
+  "uso_comprobante": {
+    "compras": [
+      "FAC",
+      "NDB",
+      "NCC",
+      "REC",
+      "TIQ",
+      "TFA",
+      "TNC",
+      "TND",
+      "DES"
+    ],
+    "ventas": [
+      "FAC",
+      "NDB",
+      "NCC",
+      "REC",
+      "TIQ",
+      "TFA",
+      "TNC",
+      "TND",
+      "INF",
+      "REM",
+      "FCE",
+      "NCE",
+      "NDE"
+      ,"FACX"
+    ]
+  },
+  "compras_solo": {
+    "DES": "Despacho de Importación (solo compras)"
+  },
+  "ventas_solo": {
+    "INF": "Informe Diario de Cierre - Zeta (solo ventas)",
+    "FCE": "Factura de Crédito Electrónica MiPyMEs (solo ventas)",
+    "NCE": "Nota de Crédito Electrónica MiPyMEs (solo ventas)",
+    "NDE": "Nota de Débito Electrónica MiPyMEs (solo ventas)"
+  },
+  "comprobantes": {
+    "001": {
+      "tipo": "FAC",
+      "letra": "A",
+      "description": "Factura A"
+    },
+    "002": {
+      "tipo": "NDB",
+      "letra": "A",
+      "description": "Nota de Débito A"
+    },
+    "003": {
+      "tipo": "NCC",
+      "letra": "A",
+      "description": "Nota de Crédito A"
+    },
+    "004": {
+      "tipo": "REC",
+      "letra": "A",
+      "description": "Recibo A"
+    },
+    "006": {
+      "tipo": "FAC",
+      "letra": "B",
+      "description": "Factura B"
+    },
+    "007": {
+      "tipo": "NDB",
+      "letra": "B",
+      "description": "Nota de Débito B"
+    },
+    "008": {
+      "tipo": "NCC",
+      "letra": "B",
+      "description": "Nota de Crédito B"
+    },
+    "009": {
+      "tipo": "REC",
+      "letra": "B",
+      "description": "Recibo B"
+    },
+    "011": {
+      "tipo": "FAC",
+      "letra": "C",
+      "description": "Factura C"
+    },
+    "012": {
+      "tipo": "NDB",
+      "letra": "C",
+      "description": "Nota de Débito C"
+    },
+    "013": {
+      "tipo": "NCC",
+      "letra": "C",
+      "description": "Nota de Crédito C"
+    },
+    "015": {
+      "tipo": "REC",
+      "letra": "C",
+      "description": "Recibo C"
+    },
+    "019": {
+      "tipo": "FAC",
+      "letra": "E",
+      "description": "Factura de Exportación"
+    },
+    "020": {
+      "tipo": "NDB",
+      "letra": "E",
+      "description": "Nota de Débito Exportación"
+    },
+    "021": {
+      "tipo": "NCC",
+      "letra": "E",
+      "description": "Nota de Crédito Exportación"
+    },
+    "051": {
+      "tipo": "FAC",
+      "letra": "M",
+      "description": "Factura M"
+    },
+    "052": {
+      "tipo": "NDB",
+      "letra": "M",
+      "description": "Nota de Débito M"
+    },
+    "053": {
+      "tipo": "NCC",
+      "letra": "M",
+      "description": "Nota de Crédito M"
+    },
+    "054": {
+      "tipo": "REC",
+      "letra": "M",
+      "description": "Recibo M"
+    },
+    "066": {
+      "tipo": "DES",
+      "letra": "X",
+      "description": "Despacho de Importación"
+    },
+    "080": {
+      "tipo": "INF",
+      "letra": "X",
+      "description": "Informe Diario de Cierre (Zeta)"
+    },
+    "081": {
+      "tipo": "TFA",
+      "letra": "A",
+      "description": "Tique Factura A"
+    },
+    "082": {
+      "tipo": "TFA",
+      "letra": "B",
+      "description": "Tique Factura B"
+    },
+    "083": {
+      "tipo": "TIQ",
+      "letra": "X",
+      "description": "Tique"
+    },
+    "088": {
+      "tipo": "REM",
+      "letra": "E",
+      "description": "Remito Electrónico"
+    },
+    "091": {
+      "tipo": "REM",
+      "letra": "R",
+      "description": "Remito R"
+    },
+    "110": {
+      "tipo": "TNC",
+      "letra": "X",
+      "description": "Tique Nota de Crédito"
+    },
+    "111": {
+      "tipo": "TFA",
+      "letra": "C",
+      "description": "Tique Factura C"
+    },
+    "112": {
+      "tipo": "TNC",
+      "letra": "A",
+      "description": "Tique Nota de Crédito A"
+    },
+    "113": {
+      "tipo": "TNC",
+      "letra": "B",
+      "description": "Tique Nota de Crédito B"
+    },
+    "114": {
+      "tipo": "TNC",
+      "letra": "C",
+      "description": "Tique Nota de Crédito C"
+    },
+    "115": {
+      "tipo": "TND",
+      "letra": "A",
+      "description": "Tique Nota de Débito A"
+    },
+    "116": {
+      "tipo": "TND",
+      "letra": "B",
+      "description": "Tique Nota de Débito B"
+    },
+    "117": {
+      "tipo": "TND",
+      "letra": "C",
+      "description": "Tique Nota de Débito C"
+    },
+    "118": {
+      "tipo": "TFA",
+      "letra": "M",
+      "description": "Tique Factura M"
+    },
+    "119": {
+      "tipo": "TNC",
+      "letra": "M",
+      "description": "Tique Nota de Crédito M"
+    },
+    "120": {
+      "tipo": "TND",
+      "letra": "M",
+      "description": "Tique Nota de Débito M"
+    },
+    "201": {
+      "tipo": "FCE",
+      "letra": "A",
+      "description": "Factura de Crédito Electrónica MiPyMEs A"
+    },
+    "202": {
+      "tipo": "NDE",
+      "letra": "A",
+      "description": "Nota de Débito Electrónica MiPyMEs A"
+    },
+    "203": {
+      "tipo": "NCE",
+      "letra": "A",
+      "description": "Nota de Crédito Electrónica MiPyMEs A"
+    },
+    "206": {
+      "tipo": "FCE",
+      "letra": "B",
+      "description": "Factura de Crédito Electrónica MiPyMEs B"
+    },
+    "207": {
+      "tipo": "NDE",
+      "letra": "B",
+      "description": "Nota de Débito Electrónica MiPyMEs B"
+    },
+    "208": {
+      "tipo": "NCE",
+      "letra": "B",
+      "description": "Nota de Crédito Electrónica MiPyMEs B"
+    },
+    "211": {
+      "tipo": "FCE",
+      "letra": "C",
+      "description": "Factura de Crédito Electrónica MiPyMEs C"
+    },
+    "212": {
+      "tipo": "NDE",
+      "letra": "C",
+      "description": "Nota de Débito Electrónica MiPyMEs C"
+    },
+    "213": {
+      "tipo": "NCE",
+      "letra": "C",
+      "description": "Nota de Crédito Electrónica MiPyMEs C"
+    }
+    ,
+    "999": {
+      "tipo": "FACX",
+      "letra": "X",
+      "description": "Factura X"
+    }
+  },
+  "alias_to_tipo": {
+    "sales invoice": "FAC",
+    "venta": "FAC",
+    "factura": "FAC",
+    "factura electronica": "FAC",
+    "factura electronica de venta": "FAC",
+    "invoice": "FAC",
+    "purchase invoice": "FAC",
+    "factura de compra": "FAC",
+    "credit note": "NCC",
+    "nota de credito": "NCC",
+    "nota credito": "NCC",
+    "credit": "NCC",
+    "ncc": "NCC",
+    "ncv": "NCC",
+    "nota de debito": "NDB",
+    "nota de d\u0002dbito": "NDB",
+    "debit note": "NDB",
+    "debit": "NDB",
+    "ndv": "NDB",
+    "ndc": "NDB",
+    "recibo": "REC",
+    "receipt": "REC",
+    "rec": "REC",
+    "remito": "REM",
+    "remito de compra": "REM",
+    "purchase receipt": "REM",
+    "delivery note": "REM",
+    "ticket": "TIQ",
+    "nota de crédito": "NCC",
+    "nota de débito": "NDB"
+  },
+  "extra_aliases": {
+    "factura x": "FACX",
+    "factura de resguardo": "FACX"
+  },
+  "naming_conventions": {
+    "prefixes": {
+      "ventas": {
+        "electronico": "VE",
+        "manual": "VM"
+      },
+      "compras": {
+        "default": "CC"
+      },
+      "pagos": {
+        "ventas": {
+          "electronico": "VE",
+          "manual": "VM"
+        },
+        "compras": {
+          "default": "CC"
+        }
+      },
+      "ordenes": {
+        "compra": "CC-OCO",
+        "venta": "VM-OVE",
+        "presupuesto_venta": "VM-PRE"
+      }
+    },
+    "siglas": {
+      "FAC": {
+        "venta": "FCV",
+        "compra": "FCC"
+      },
+      "FCE": {
+        "venta": "FCV",
+        "compra": "FCC"
+      },
+      "NCC": {
+        "venta": "NCV",
+        "compra": "NCC"
+      },
+      "NCE": {
+        "venta": "NCV",
+        "compra": "NCC"
+      },
+      "NDB": {
+        "venta": "NDV",
+        "compra": "NDC"
+      },
+      "NDE": {
+        "venta": "NDV",
+        "compra": "NDC"
+      },
+      "TNC": {
+        "venta": "NCV",
+        "compra": "NCC"
+      },
+      "TND": {
+        "venta": "NDV",
+        "compra": "NDC"
+      },
+      "REC": {
+        "venta": "REC",
+        "compra": "REC"
+      },
+      "REM": {
+        "venta": "REM",
+        "compra": "REM"
+      },
+      "TIQ": {
+        "venta": "TIQ",
+        "compra": "TIQ"
+      },
+      "TFA": {
+        "venta": "TIQ",
+        "compra": "TIQ"
+      }
+    }
+  }
+}
